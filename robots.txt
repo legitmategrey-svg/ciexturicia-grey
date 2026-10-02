@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://legitmategrey-svg.github.io/ciexturicia-grey/sitemap.xml

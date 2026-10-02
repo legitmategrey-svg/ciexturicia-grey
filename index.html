@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080914">
+  <title>Ciexturicia Grey | Developer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="glow glow-one"></div>
+  <div class="glow glow-two"></div>
+
+  <header>
+    <a href="#home" class="logo">
+      CG<span>.</span>
+    </a>
+    <button class="menu-btn" id="menuBtn"
+            aria-label="Toggle menu">☰</button>
+    <nav id="nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#friends">Friends</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="status">
+          <span class="dot"></span>
+          ICT PRACTITIONER • DEVELOPER & DEVELOPER
+        </div>
+        <p class="eyebrow">WELCOME TO MY DIGITAL WORLD</p>
+        <h1>I'm <span>Ciexturicia</span><br>Grey<span class="cursor">_</span></h1>
+        <h2>Web Developer <span>//</span> Programmer</h2>
+        <p class="intro">
+          Building ideas into digital experiences.
+          Exploring technology, writing code and
+          creating the future one project at a time.
+        </p>
+        
+<!-- GREY PROFILE PHOTO -->
+<div class="profile-frame">
+<img src="grey-profile.jpg"
+     alt="Ciexturicia Grey"
+     class="profile-photo">
+  <span class="profile-status">● AVAILABLE</span>
+</div>
+
+        <div class="hero-buttons">
+          <a class="btn primary" href="#projects">Explore My Work ↗</a>
+      <a class="btn primary" href="contact.html">
+  Contact Me ↗
+      </a>
+        </div>
+      </div>
+
+      
+      <div class="hero-card">
+        <div class="card-top">
+          <span>● ● ●</span>
+          <span>grey.dev</span>
+        </div>
+        <div class="code-art">
+          <p><span class="pink">const</span> developer = {</p>
+          <p class="indent">name: <span class="green">'Grey'</span>,</p>
+          <p class="indent">passion: <span class="green">'ICT'</span>,</p>
+          <p class="indent">focus: <span class="green">'Web'</span>,</p>
+          <p class="indent">mindset: <span class="green">'Create'</span></p>
+          <p>};</p>
+          <br>
+          <p><span class="blue">developer</span>.build();</p>
+          <p class="comment">// The future starts here.</p>
+        </div>
+        <div class="card-bottom">
+          <span>● SYSTEM ONLINE</span>
+          <span>v1.0</span>
+        </div>
+      </div>
+      <div class="scroll">SCROLL TO EXPLORE ↓</div>
+
+      
+<!-- GREY DIGITAL CLOCK -->
+<div class="grey-clock">
+  <div class="clock-label">SYSTEM TIME</div>
+  <div id="digitalClock">00:00:00</div>
+  <div id="digitalDate">Loading date...</div>
+  <div class="clock-status">
+    <span class="status-dot"></span>
+    SYSTEM ONLINE
+  </div>
+</div>
+
+    </section>
+
+    
+
+<!-- GREY FUTURISTIC MUSIC PLAYER -->
+<section class="music-player">
+  <div class="music-top">
+    <span class="music-tag">GREY AUDIO SYSTEM</span>
+    <span class="music-live">● ONLINE</span>
+  </div>
+
+  <div class="album-art">
+    <div class="vinyl">♫</div>
+  </div>
+
+  <div class="track-info">
+    <h2 id="songTitle">My Favorite Music</h2>
+    <p id="artistName">Ciexturicia Grey's Playlist</p>
+  </div>
+
+  
+<!-- GREY SONG SELECTOR -->
+<div class="song-selector">
+  <label for="songSelect">♫ SELECT YOUR TRACK</label>
+  <select id="songSelect">
+    <option value="0">You Got Me — Tatiana Manaois</option>
+    <option value="1">Like I Did — Tatiana Manaois</option>
+    <option value="2">Wanna Be Yours — Tatiana Manaois</option>
+  </select>
+</div>
+
+  <audio id="musicAudio" preload="metadata">
+    Your browser does not support audio.
+  </audio>
+
+  <div class="progress-area">
+    <input id="progress" type="range"
+      min="0" max="100" value="0">
+
+    <div class="time-row">
+      <span id="currentTime">0:00</span>
+      <span id="duration">0:00</span>
+    </div>
+  </div>
+
+  <div class="music-controls">
+    <button id="prevBtn" aria-label="Previous track">⏮</button>
+
+    <button id="playBtn" class="play-btn"
+      aria-label="Play">▶</button>
+
+    <button id="nextBtn" aria-label="Next track">⏭</button>
+  </div>
+
+  <div class="volume-area">
+    <span>VOL</span>
+    <input id="volume" type="range"
+      min="0" max="1" step="0.01" value="0.7">
+  </div>
+
+  <p id="musicStatus" class="music-status">
+    READY TO PLAY
+  </p>
+</section>
+
+
+    <section id="about" class="section">
+      <p class="eyebrow">01 / ABOUT ME</p>
+      <h2 class="section-title">The mind behind<br><span>the code.</span></h2>
+      <div class="about-box">
+        <p>
+          I'm Ciexturicia Grey, an ICT learner passionate
+          about programming, web design and technology.
+          I'm working towards my National Certificate in
+          ICT while developing my skills and exploring
+          new ways to create.
+        </p>
+        <p>
+          I believe in learning, creativity, loyalty and
+          turning curiosity into practical experience.
+          Every project is another opportunity to grow.
+        </p>
+        <div class="credential">
+          <span>✦</span>
+          <div>
+            <strong>National Certificate: ICT</strong>
+            <small>Education & professional development</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <p class="eyebrow">02 / MY INTERESTS</p>
+      <h2 class="section-title">What I <span>explore.</span></h2>
+      <div class="grid">
+        <article class="tile">
+          <span class="tile-icon">⌨</span>
+          <h3>Programming</h3>
+          <p>Learning to solve problems and build useful software.</p>
+        </article>
+        <article class="tile">
+          <span class="tile-icon">◇</span>
+          <h3>Web Design</h3>
+          <p>Creating modern layouts and interactive web experiences.</p>
+        </article>
+        <article class="tile">
+          <span class="tile-icon">▣</span>
+          <h3>Technology</h3>
+          <p>Exploring ICT, digital tools and emerging ideas.</p>
+        </article>
+        <article class="tile">
+          <span class="tile-icon">♫</span>
+          <h3>Music & Gaming</h3>
+          <p>Enjoying music, games and creative inspiration.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <p class="eyebrow">03 / MY WORK</p>
+      <h2 class="section-title">Projects & <span>experiments.</span></h2>
+      <div class="project">
+        <div class="project-number">01</div>
+        <div>
+          <h3>Personal Portfolio</h3>
+          <p>A digital space showcasing my journey,
+             interests, skills and future ambitions.</p>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+      <div class="project">
+        <div class="project-number">02</div>
+        <div>
+          <h3>Next Project</h3>
+          <p>A place for my next coding experiment.
+             More projects coming as I learn.</p>
+          <span class="tag">IN DEVELOPMENT</span>
+        </div>
+        <span class="project-arrow">＋</span>
+      </div>
+    </section>
+
+    <section id="friends" class="section">
+      <p class="eyebrow">04 / MY PEOPLE</p>
+      <h2 class="section-title">Friendship <span>matters.</span></h2>
+      <p class="section-desc">
+        Good people make the journey memorable.
+      </p>
+      <div class="friends">
+        <div class="friend"><span>01</span> Namubiru Fatumah</div>
+        <div class="friend"><span>02</span> Mirembe Shatrah</div>
+        <div class="friend"><span>03</span> Nanyombi Michello</div>
+        <div class="friend"><span>04</span> Ssebidde Jordan</div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <p class="eyebrow">05 / GET IN TOUCH</p>
+      <h2 class="section-title">Let's build<br><span>something.</span></h2>
+      <p>
+        Interested in technology, creativity or collaborating
+        on a project? Reach out and let's connect.
+      </p>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=legitmategrey@gmail.com"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="email-btn">
+  Email Me ↗
+      </a>
+      </a>
+      <small>Send Darglous an email message.</small>
+    </section>
+  </main>
+
+  <footer>
+    <a href="#home" class="logo">CG<span>.</span></a>
+    <p>Designed & built by Ciexturicia Grey.</p>
+    <p class="footer-copy">© 2026 • KEEP CREATING.</p>
+  </footer>
+<!-- GREY AI ASSISTANT -->
+<section class="grey-ai" id="grey-ai">
+  <div class="ai-header">
+    <div class="ai-avatar">G</div>
+
+    <div class="ai-info">
+      <h2>GREY AI</h2>
+      <p><span class="online-dot"></span> ONLINE | PORTFOLIO ASSISTANT</p>
+    </div>
+
+    <button class="ai-close" onclick="toggleGreyAI()">
+      ×
+    </button>
+  </div>
+
+  <div class="ai-chat" id="ai-chat">
+    <div class="ai-message bot">
+      Yo! 👋 Welcome to Ciexturicia Grey's
+      digital world. I'm Grey AI.
+      Ask me anything about Grey!
+    </div>
+  </div>
+
+  <div class="ai-quick">
+    <button onclick="askGrey('Who is Grey?')">
+      Who is Grey?
+    </button>
+    <button onclick="askGrey('What are his skills?')">
+      Skills
+    </button>
+    <button onclick="askGrey('What are his hobbies?')">
+      Hobbies
+    </button>
+  </div>
+
+  <div class="ai-input-area">
+    <input
+      type="text"
+      id="ai-input"
+      placeholder="Message Grey AI..."
+      autocomplete="off"
+    >
+    <button onclick="sendGreyMessage()">
+      ➤
+    </button>
+  </div>
+</section>
+
+<button class="ai-launcher" onclick="toggleGreyAI()">
+  🤖
+  <span>ASK GREY AI</span>
+</button>
+
+  <script src="script.js" defer></script>
+
+</body>
+</html>

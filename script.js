@@ -1136,7 +1136,8 @@ function greyFindAnswer(question) {
 
 /* ---------- SEND MESSAGE ---------- */
 
-function sendGreyMessage() {
+async function sendGreyMessage() {
+
   const input = document.getElementById("ai-input");
 
   const chat =
@@ -1153,6 +1154,7 @@ function sendGreyMessage() {
 
   if (!message) return;
 
+
   // Show user's message
   const userMessage = document.createElement("div");
 
@@ -1161,50 +1163,109 @@ function sendGreyMessage() {
 
   chat.appendChild(userMessage);
 
-  // Clear input
   input.value = "";
 
   chat.scrollTop = chat.scrollHeight;
 
-  // Get answer from GREY AI's built-in knowledge
-  const reply = greyFindAnswer(message);
 
-  // Thinking delay
-  setTimeout(() => {
+  // Show thinking message
+  const thinkingMessage = document.createElement("div");
 
+  thinkingMessage.className = "ai-message bot";
+  thinkingMessage.textContent = "GREY AI is thinking...";
+
+  chat.appendChild(thinkingMessage);
+
+  chat.scrollTop = chat.scrollHeight;
+
+
+  // Send conversation to the real AI backend
+  try {
+
+    const response = await fetch(
+      "https://grey-ai-backend.legitmategrey.workers.dev/",
+      {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+
+          message: message
+
+        })
+      }
+    );
+
+
+    const data = await response.json();
+
+
+    // Remove thinking message
+    thinkingMessage.remove();
+
+
+    if (!response.ok || !data.success) {
+
+      throw new Error(
+        data.error || "GREY AI backend error"
+      );
+
+    }
+
+
+    // Show AI response
     const botMessage = document.createElement("div");
 
     botMessage.className = "ai-message bot";
-
-    botMessage.textContent = reply;
+    botMessage.textContent = data.answer;
 
     chat.appendChild(botMessage);
 
     chat.scrollTop = chat.scrollHeight;
 
-  }, 350);
+
+  } catch (error) {
+
+    console.error("GREY AI:", error);
+
+    thinkingMessage.textContent =
+      "Sorry, GREY AI is temporarily unavailable. Please try again.";
+
+  }
+
 }
 
-// Make function available to HTML buttons
+
+// Make available to your HTML button
 window.sendGreyMessage = sendGreyMessage;
 
 
-// Allow Enter key to send
-const greyInput = document.getElementById("ai-input");
+// Enter key sends message
+const greyInput =
+  document.getElementById("ai-input");
 
 if (greyInput) {
 
-  greyInput.addEventListener("keydown", function(event) {
+  greyInput.addEventListener(
+    "keydown",
+    function(event) {
 
-    if (event.key === "Enter" && !event.shiftKey) {
+      if (
+        event.key === "Enter" &&
+        !event.shiftKey
+      ) {
 
-      event.preventDefault();
+        event.preventDefault();
 
-      sendGreyMessage();
+        sendGreyMessage();
+
+      }
 
     }
-
-  });
+  );
 
 }
 

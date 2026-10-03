@@ -1194,5 +1194,23 @@ footer p {
   }
 }
 
+/* GREY AI VISIBILITY */
+.grey-ai {
+  display: none;
+}
 
+.grey-ai.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Keep the launcher clickable */
+.ai-launcher {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99999;
+  cursor: pointer;
+  pointer-events: auto;
+}
 

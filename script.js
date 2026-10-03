@@ -1195,3 +1195,15 @@ if (aiMessages && aiMessages.children.length === 0) {
     "family, music, interests, or technology."
   );
 }
+
+// GREY AI OPEN / CLOSE
+window.toggleGreyAI = function () {
+  const ai = document.getElementById("grey-ai");
+
+  if (!ai) {
+    console.error("GREY AI section not found!");
+    return;
+  }
+
+  ai.classList.toggle("active");
+};

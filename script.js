@@ -1137,52 +1137,87 @@ function greyFindAnswer(question) {
 /* ---------- SEND MESSAGE ---------- */
 
 function sendGreyMessage() {
-  if (!aiInput) {
-    console.error(
-      "GREY AI: Could not find the chat input. Check its HTML ID."
-    );
+  const input = document.getElementById("ai-input");
+
+  const chat =
+    document.getElementById("ai-chat") ||
+    document.getElementById("ai-messages") ||
+    document.getElementById("chat-messages");
+
+  if (!input || !chat) {
+    console.error("GREY AI: Chat elements not found.");
     return;
   }
 
-  const question = aiInput.value.trim();
+  const message = input.value.trim();
 
-  if (!question) return;
+  if (!message) return;
 
-  greyAddMessage(question, "user");
-  aiInput.value = "";
+  // Show user's message
+  const userMessage = document.createElement("div");
 
-  const answer = greyFindAnswer(question);
+  userMessage.className = "ai-message user";
+  userMessage.textContent = message;
 
-  greyAddMessage(answer, "bot");
+  chat.appendChild(userMessage);
+
+  // Clear input
+  input.value = "";
+
+  chat.scrollTop = chat.scrollHeight;
+
+  // Get answer from GREY AI's built-in knowledge
+  const reply = greyFindAnswer(message);
+
+  // Thinking delay
+  setTimeout(() => {
+
+    const botMessage = document.createElement("div");
+
+    botMessage.className = "ai-message bot";
+
+    botMessage.textContent = reply;
+
+    chat.appendChild(botMessage);
+
+    chat.scrollTop = chat.scrollHeight;
+
+  }, 350);
 }
 
-
-/* ---------- CONNECT CHAT CONTROLS ---------- */
-
-if (aiSend) {
-  aiSend.addEventListener(
-    "click",
-    sendGreyMessage
-  );
-}
-
-if (aiInput) {
-  aiInput.addEventListener(
-    "keydown",
-    function(event) {
-      if (event.key === "Enter") {
-        event.preventDefault();
-        sendGreyMessage();
-      }
-    }
-  );
-}
-
-
-/* ---------- GLOBAL FUNCTIONS ---------- */
-
+// Make function available to HTML buttons
 window.sendGreyMessage = sendGreyMessage;
-window.askGrey = sendGreyMessage;
+
+
+// Allow Enter key to send
+const greyInput = document.getElementById("ai-input");
+
+if (greyInput) {
+
+  greyInput.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter" && !event.shiftKey) {
+
+      event.preventDefault();
+
+      sendGreyMessage();
+
+    }
+
+  });
+
+}
+
+// Make the function available to your HTML buttons
+window.sendGreyMessage = sendGreyMessage;
+
+window.askGrey = function(question) {
+  const input = document.getElementById("ai-input");
+  if (!input) return;
+
+  input.value = question;
+  sendGreyMessage();
+};
 
 
 /* ---------- INITIAL GREETING ---------- */

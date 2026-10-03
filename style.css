@@ -1203,6 +1203,13 @@ footer p {
   display: flex;
   flex-direction: column;
 }
+.grey-ai {
+  display: none;
+}
+
+.grey-ai.active {
+  display: block;
+}
 
 /* Keep the launcher clickable */
 .ai-launcher {

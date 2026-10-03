@@ -722,43 +722,28 @@ function greyFindAnswer(question) {
 
   /* DARGLOUS */
 
-  /* ABOUT DARGLOUS / GREY */
+    /* ==========================================
+     ABOUT DARGLOUS / GREY
+  ========================================== */
 
-if (
-  q.includes("who is darglous") ||
-  q.includes("who is lutwama") ||
-  q.includes("tell me about darglous") ||
-  q.includes("tell me about lutwama") ||
-  q.includes("who exactly is darglous") ||
-  q.includes("who is ciexturicia") ||
-  q.includes("who is ciexturicia grey") ||
-  q.includes("tell me about ciexturicia") ||
-  q.includes("tell me about ciexturicia grey") ||
-  q.includes("tell me about grey") ||
-  q.includes("who exactly is grey") ||
-  q.includes("what is ciexturicia grey about")
-) {
-
-  return "Lutwama Darglous is the real name of Ciexturicia Grey, also known as Legitmate Grey. He is a Web Developer and Programmer in Training who is developing his skills in ICT, programming and web design.";
-
-}
+  if (
+    q.includes("who is darglous") ||
+    q.includes("who is lutwama") ||
+    q.includes("tell me about darglous") ||
+    q.includes("tell me about lutwama") ||
+    q.includes("who exactly is darglous") ||
+    q.includes("who is ciexturicia") ||
+    q.includes("who is ciexturicia grey") ||
+    q.includes("tell me about ciexturicia") ||
+    q.includes("tell me about ciexturicia grey") ||
+    q.includes("tell me about grey") ||
+    q.includes("who exactly is grey") ||
+    q.includes("what is ciexturicia grey about")
+  ) {
 
     return "Lutwama Darglous is the real name of Ciexturicia Grey, also known as Legitmate Grey. He is a Web Developer and Programmer in Training who is developing his skills in ICT, programming and web design.";
 
   }
-
-
-  /* REAL NAME */
-
-  if (
-    q.includes("real name") ||
-    q.includes("darglous real name")
-  ) {
-
-    return "Ciexturicia Grey's real name is Lutwama Darglous.";
-
-  }
-
 
   /* NICKNAME */
 

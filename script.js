@@ -1135,6 +1135,16 @@ function greyFindAnswer(question) {
 
 
 /* ---------- SEND MESSAGE ---------- */
+// ======================================================
+// GREY AI CONVERSATION MEMORY
+// ======================================================
+
+const greyConversation = [];
+
+
+// ======================================================
+// SEND MESSAGE TO GREY AI
+// ======================================================
 
 async function sendGreyMessage() {
 
@@ -1155,7 +1165,10 @@ async function sendGreyMessage() {
   if (!message) return;
 
 
-  // Show user's message
+  // --------------------------------------------------
+  // SHOW USER MESSAGE
+  // --------------------------------------------------
+
   const userMessage = document.createElement("div");
 
   userMessage.className = "ai-message user";
@@ -1168,7 +1181,20 @@ async function sendGreyMessage() {
   chat.scrollTop = chat.scrollHeight;
 
 
-  // Show thinking message
+  // --------------------------------------------------
+  // SAVE USER MESSAGE
+  // --------------------------------------------------
+
+  greyConversation.push({
+    role: "user",
+    content: message
+  });
+
+
+  // --------------------------------------------------
+  // THINKING MESSAGE
+  // --------------------------------------------------
+
   const thinkingMessage = document.createElement("div");
 
   thinkingMessage.className = "ai-message bot";
@@ -1179,7 +1205,10 @@ async function sendGreyMessage() {
   chat.scrollTop = chat.scrollHeight;
 
 
-  // Send conversation to the real AI backend
+  // --------------------------------------------------
+  // SEND TO BACKEND
+  // --------------------------------------------------
+
   try {
 
     const response = await fetch(
@@ -1193,7 +1222,9 @@ async function sendGreyMessage() {
 
         body: JSON.stringify({
 
-          message: message
+          message: message,
+
+          history: greyConversation.slice(-10)
 
         })
       }
@@ -1203,7 +1234,10 @@ async function sendGreyMessage() {
     const data = await response.json();
 
 
-    // Remove thinking message
+    // ------------------------------------------------
+    // REMOVE THINKING MESSAGE
+    // ------------------------------------------------
+
     thinkingMessage.remove();
 
 
@@ -1216,7 +1250,20 @@ async function sendGreyMessage() {
     }
 
 
-    // Show AI response
+    // ------------------------------------------------
+    // SAVE AI RESPONSE
+    // ------------------------------------------------
+
+    greyConversation.push({
+      role: "assistant",
+      content: data.answer
+    });
+
+
+    // ------------------------------------------------
+    // SHOW AI RESPONSE
+    // ------------------------------------------------
+
     const botMessage = document.createElement("div");
 
     botMessage.className = "ai-message bot";
@@ -1239,11 +1286,17 @@ async function sendGreyMessage() {
 }
 
 
-// Make available to your HTML button
+// ======================================================
+// MAKE FUNCTION AVAILABLE TO HTML
+// ======================================================
+
 window.sendGreyMessage = sendGreyMessage;
 
 
-// Enter key sends message
+// ======================================================
+// ENTER KEY
+// ======================================================
+
 const greyInput =
   document.getElementById("ai-input");
 

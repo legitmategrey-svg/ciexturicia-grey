@@ -61,8 +61,11 @@ function updateGreyClock() {
     day: "numeric"
   });
 
-  const clock = document.getElementById("digitalClock");
-  const clockDate = document.getElementById("digitalDate");
+  const clock =
+    document.getElementById("digitalClock");
+
+  const clockDate =
+    document.getElementById("digitalDate");
 
   if (clock) {
     clock.textContent = time;
@@ -83,18 +86,38 @@ setInterval(updateGreyClock, 1000);
    3. GREY FUTURISTIC MUSIC PLAYER
 ===================================== */
 
-const audio = document.getElementById("musicAudio");
-const playBtn = document.getElementById("playBtn");
-const progress = document.getElementById("progress");
-const currentTime = document.getElementById("currentTime");
-const duration = document.getElementById("duration");
-const volume = document.getElementById("volume");
-const songTitle = document.getElementById("songTitle");
-const artistName = document.getElementById("artistName");
-const songSelect = document.getElementById("songSelect");
+const audio =
+  document.getElementById("musicAudio");
 
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
+const playBtn =
+  document.getElementById("playBtn");
+
+const progress =
+  document.getElementById("progress");
+
+const currentTime =
+  document.getElementById("currentTime");
+
+const duration =
+  document.getElementById("duration");
+
+const volume =
+  document.getElementById("volume");
+
+const songTitle =
+  document.getElementById("songTitle");
+
+const artistName =
+  document.getElementById("artistName");
+
+const songSelect =
+  document.getElementById("songSelect");
+
+const prevBtn =
+  document.getElementById("prevBtn");
+
+const nextBtn =
+  document.getElementById("nextBtn");
 
 
 const playlist = [
@@ -129,10 +152,14 @@ function formatTime(seconds) {
     return "0:00";
   }
 
-  const mins = Math.floor(seconds / 60);
-  const secs = Math.floor(seconds % 60);
+  const mins =
+    Math.floor(seconds / 60);
 
-  return mins + ":" + String(secs).padStart(2, "0");
+  const secs =
+    Math.floor(seconds % 60);
+
+  return mins + ":" +
+    String(secs).padStart(2, "0");
 
 }
 
@@ -146,12 +173,15 @@ function loadSong(index) {
   }
 
   currentSong =
-    (index + playlist.length) % playlist.length;
+    (index + playlist.length) %
+    playlist.length;
 
-  const song = playlist[currentSong];
+  const song =
+    playlist[currentSong];
 
   if (songSelect) {
-    songSelect.value = String(currentSong);
+    songSelect.value =
+      String(currentSong);
   }
 
   if (audio) {
@@ -159,11 +189,13 @@ function loadSong(index) {
   }
 
   if (songTitle) {
-    songTitle.textContent = song.title;
+    songTitle.textContent =
+      song.title;
   }
 
   if (artistName) {
-    artistName.textContent = song.artist;
+    artistName.textContent =
+      song.artist;
   }
 
   if (progress) {
@@ -171,11 +203,13 @@ function loadSong(index) {
   }
 
   if (currentTime) {
-    currentTime.textContent = "0:00";
+    currentTime.textContent =
+      "0:00";
   }
 
   if (duration) {
-    duration.textContent = "0:00";
+    duration.textContent =
+      "0:00";
   }
 
 }
@@ -199,7 +233,10 @@ function playSong() {
     })
     .catch(error => {
 
-      console.error("Music error:", error);
+      console.error(
+        "Music error:",
+        error
+      );
 
       if (playBtn) {
         playBtn.textContent = "▶";
@@ -231,15 +268,18 @@ function pauseSong() {
 
 if (playBtn && audio) {
 
-  playBtn.addEventListener("click", () => {
+  playBtn.addEventListener(
+    "click",
+    () => {
 
-    if (audio.paused) {
-      playSong();
-    } else {
-      pauseSong();
+      if (audio.paused) {
+        playSong();
+      } else {
+        pauseSong();
+      }
+
     }
-
-  });
+  );
 
 }
 
@@ -270,23 +310,27 @@ function previousSong() {
 
 if (songSelect) {
 
-  songSelect.addEventListener("change", () => {
+  songSelect.addEventListener(
+    "change",
+    () => {
 
-    const selectedSong = Number(songSelect.value);
+      const selectedSong =
+        Number(songSelect.value);
 
-    if (
-      Number.isInteger(selectedSong) &&
-      selectedSong >= 0 &&
-      selectedSong < playlist.length
-    ) {
+      if (
+        Number.isInteger(selectedSong) &&
+        selectedSong >= 0 &&
+        selectedSong < playlist.length
+      ) {
 
-      loadSong(selectedSong);
+        loadSong(selectedSong);
 
-      playSong();
+        playSong();
+
+      }
 
     }
-
-  });
+  );
 
 }
 
@@ -331,12 +375,15 @@ if (audio && progress) {
       }
 
       progress.value =
-        (audio.currentTime / audio.duration) * 100;
+        (audio.currentTime /
+          audio.duration) * 100;
 
       if (currentTime) {
 
         currentTime.textContent =
-          formatTime(audio.currentTime);
+          formatTime(
+            audio.currentTime
+          );
 
       }
 
@@ -351,7 +398,9 @@ if (audio && progress) {
       if (duration) {
 
         duration.textContent =
-          formatTime(audio.duration);
+          formatTime(
+            audio.duration
+          );
 
       }
 
@@ -390,7 +439,8 @@ if (audio && progress) {
 
 if (audio && volume) {
 
-  audio.volume = Number(volume.value);
+  audio.volume =
+    Number(volume.value);
 
   volume.addEventListener(
     "input",
@@ -601,7 +651,7 @@ const greyKnowledge = {
   },
 
 
-    portfolio: {
+  portfolio: {
 
     url:
       "https://legitmategrey-svg.github.io/ciexturicia-grey/"
@@ -696,13 +746,13 @@ function greyFindAnswer(question) {
   /* GREETINGS */
 
   if (
-    /^(hi|hello|hey|yo|hiya)$/.test(q) ||
+    /^(hi|hello|hey|yo|hiya|sup)$/.test(q) ||
     q.includes("good morning") ||
     q.includes("good afternoon") ||
     q.includes("good evening")
   ) {
 
-    return "Hey! 👋 I'm GREY AI. Ask me about Darglous, his skills, projects, interests, goals or technology.";
+    return "Hey! 👋 I'm GREY AI. Ask me anything about Grey, his skills, goals, projects, interests or technology.";
 
   }
 
@@ -712,59 +762,76 @@ function greyFindAnswer(question) {
   if (
     q.includes("who are you") ||
     q.includes("what are you") ||
-    q.includes("your name")
+    q.includes("your name") ||
+    q.includes("are you grey")
   ) {
 
-    return "I am GREY AI 🤖, the AI assistant for Ciexturicia Grey's personal portfolio.";
+    return "I am GREY AI 🤖, the personal portfolio assistant for Ciexturicia Grey.";
 
   }
 
 
-  /* DARGLOUS */
-
-    /* ==========================================
-     ABOUT DARGLOUS / GREY
-  ========================================== */
+  /* WHO IS GREY */
 
   if (
-    q.includes("who is darglous") ||
-    q.includes("who is lutwama") ||
-    q.includes("tell me about darglous") ||
-    q.includes("tell me about lutwama") ||
-    q.includes("who exactly is darglous") ||
+    q.includes("who is grey") ||
     q.includes("who is ciexturicia") ||
     q.includes("who is ciexturicia grey") ||
-    q.includes("tell me about ciexturicia") ||
-    q.includes("tell me about ciexturicia grey") ||
+    q.includes("who is darglous") ||
+    q.includes("who is lutwama") ||
     q.includes("tell me about grey") ||
-    q.includes("who exactly is grey") ||
-    q.includes("what is ciexturicia grey about")
+    q.includes("tell me about ciexturicia") ||
+    q.includes("tell me about darglous") ||
+    q.includes("about grey") ||
+    q.includes("about darglous") ||
+    q.includes("who exactly is grey")
   ) {
 
-    return "Lutwama Darglous is the real name of Ciexturicia Grey, also known as Legitmate Grey. He is a Web Developer and Programmer in Training who is developing his skills in ICT, programming and web design.";
+    return "Ciexturicia Grey, also known as Legitmate Grey, is the portfolio identity of Lutwama Darglous. He is a Web Developer and Programmer in Training who is building his skills in ICT, programming and web design.";
 
   }
+
+
+  /* REAL NAME */
+
+  if (
+    q.includes("real name") ||
+    q.includes("actual name") ||
+    q.includes("darglous real name") ||
+    q.includes("grey real name")
+  ) {
+
+    return "Ciexturicia Grey's real name is Lutwama Darglous.";
+
+  }
+
 
   /* NICKNAME */
 
   if (
     q.includes("nickname") ||
-    q.includes("nicknames")
+    q.includes("nicknames") ||
+    q.includes("other name") ||
+    q.includes("other names")
   ) {
 
-    return "He goes by the names Ciexturicia Grey and Legitmate Grey.";
+    return "He goes by Ciexturicia Grey and Legitmate Grey.";
 
   }
 
 
-  /* DREAM */
+  /* DREAM / CAREER */
 
   if (
     q.includes("dream") ||
-    q.includes("goal") ||
+    q.includes("career goal") ||
     q.includes("ambition") ||
+    q.includes("future") ||
     q.includes("what does he want to become") ||
-    q.includes("what does he want to be")
+    q.includes("what does he want to be") ||
+    q.includes("what will he become") ||
+    q.includes("what career") ||
+    q.includes("career")
   ) {
 
     return "Darglous's dream is to become a software engineer, with a specific career goal of becoming a full-stack developer. 🚀";
@@ -777,7 +844,10 @@ function greyFindAnswer(question) {
   if (
     q.includes("education") ||
     q.includes("certificate") ||
-    q.includes("studying")
+    q.includes("studying") ||
+    q.includes("qualification") ||
+    q.includes("what is he studying") ||
+    q.includes("what did he study")
   ) {
 
     return "Darglous is pursuing a National Certificate in ICT.";
@@ -789,8 +859,12 @@ function greyFindAnswer(question) {
 
   if (
     q.includes("skills") ||
+    q.includes("skill") ||
     q.includes("what can he do") ||
-    q.includes("what does he know")
+    q.includes("what does he know") ||
+    q.includes("what is he good at") ||
+    q.includes("what can grey do") ||
+    q.includes("what can darglous do")
   ) {
 
     return "Grey is developing skills in HTML, CSS, JavaScript, Web Design and ICT.";
@@ -803,7 +877,8 @@ function greyFindAnswer(question) {
   if (
     q.includes("programming") ||
     q.includes("coding") ||
-    q.includes("programmer")
+    q.includes("programmer") ||
+    q.includes("code")
   ) {
 
     return "Programming is one of Grey's main interests. He enjoys learning how to solve problems with code and build useful software.";
@@ -816,7 +891,9 @@ function greyFindAnswer(question) {
   if (
     q.includes("web design") ||
     q.includes("web development") ||
-    q.includes("website")
+    q.includes("website") ||
+    q.includes("web developer") ||
+    q.includes("websites")
   ) {
 
     return "Grey is interested in web design and development. He works with HTML, CSS and JavaScript to create modern and interactive websites.";
@@ -829,10 +906,30 @@ function greyFindAnswer(question) {
   if (
     q.includes("technology") ||
     q.includes("tech") ||
-    q.includes("ict")
+    q.includes("ict") ||
+    q.includes("computers") ||
+    q.includes("computer")
   ) {
 
     return "Technology and ICT are major interests of Grey. He enjoys exploring digital tools, programming, AI, computers and robotics.";
+
+  }
+
+
+  /* HOBBIES / INTERESTS */
+
+  if (
+    q.includes("hobbies") ||
+    q.includes("hobby") ||
+    q.includes("interests") ||
+    q.includes("interest") ||
+    q.includes("what does grey like") ||
+    q.includes("what does he enjoy") ||
+    q.includes("what does darglous enjoy") ||
+    q.includes("what does he do for fun")
+  ) {
+
+    return "Grey enjoys programming, web designing, gaming, listening to music, watching movies, traveling and exploring new places. He is also interested in AI, computers and robotics.";
 
   }
 
@@ -843,7 +940,10 @@ function greyFindAnswer(question) {
     q.includes("music") ||
     q.includes("artist") ||
     q.includes("favorite artist") ||
-    q.includes("favourite artist")
+    q.includes("favourite artist") ||
+    q.includes("favorite singer") ||
+    q.includes("favourite singer") ||
+    q.includes("what music does grey like")
   ) {
 
     return "Grey's favorite major artist is Tatiana Manaois. He also listens to artists such as Central Cee, Kendrick Lamar, Anne-Marie, Jax and Alan Walker. 🎵";
@@ -856,7 +956,9 @@ function greyFindAnswer(question) {
   if (
     q.includes("gaming") ||
     q.includes("games") ||
-    q.includes("game")
+    q.includes("game") ||
+    q.includes("what games") ||
+    q.includes("does he play games")
   ) {
 
     return "Grey enjoys gaming. Some of his games include GTA, Blur, Call of Duty and Need for Speed. 🎮";
@@ -868,10 +970,11 @@ function greyFindAnswer(question) {
 
   if (
     q.includes("movies") ||
-    q.includes("films")
+    q.includes("films") ||
+    q.includes("movie")
   ) {
 
-    return "Grey enjoys watching movies and uses platforms such as YouTube and MovieBox.";
+    return "Grey enjoys watching movies.";
 
   }
 
@@ -882,10 +985,11 @@ function greyFindAnswer(question) {
     q.includes("travel") ||
     q.includes("travelling") ||
     q.includes("traveling") ||
+    q.includes("exploring") ||
     q.includes("places")
   ) {
 
-    return "Grey enjoys traveling and exploring new places.";
+    return "Grey enjoys traveling and exploring new places. 🌍";
 
   }
 
@@ -895,7 +999,8 @@ function greyFindAnswer(question) {
   if (
     q.includes("friends") ||
     q.includes("friendship") ||
-    q.includes("his people")
+    q.includes("his friends") ||
+    q.includes("who are his friends")
   ) {
 
     return "Grey's friends include Namubiru Fatumah, Mirembe Shatrah, Nanyombi Michello and Ssebidde Jordan, along with other friends from his school years.";
@@ -952,7 +1057,7 @@ function greyFindAnswer(question) {
     q.includes("family members")
   ) {
 
-    return "Grey has mentioned his mother Namukasa Victoria, his late father Kibirige Darlington, his brothers, aunt and grandmother as important family members.";
+    return "Grey has mentioned his mother, father, brothers, aunt and grandmother as important family members.";
 
   }
 
@@ -977,7 +1082,7 @@ function greyFindAnswer(question) {
     q.includes("dad")
   ) {
 
-    return "Grey's late father was Kibirige Darlington.";
+    return "Grey's father was Kibirige Darlington.";
 
   }
 
@@ -1050,7 +1155,7 @@ function greyFindAnswer(question) {
   if (
     q.includes("school") ||
     q.includes("merryhill") ||
-    q.includes("merryhill christian")
+    q.includes("where did he study")
   ) {
 
     return "Grey attended Merryhill Christian High School in Gayaza from Form One to Form Four.";
@@ -1062,8 +1167,9 @@ function greyFindAnswer(question) {
 
   if (
     q.includes("birthday") ||
-    q.includes("when was grey born") ||
-    q.includes("when is grey birthday")
+    q.includes("when is grey birthday") ||
+    q.includes("when is his birthday") ||
+    q.includes("when was grey born")
   ) {
 
     return greyBirthdayMessage();
@@ -1090,10 +1196,11 @@ function greyFindAnswer(question) {
   if (
     q.includes("projects") ||
     q.includes("project") ||
-    q.includes("his work")
+    q.includes("his work") ||
+    q.includes("what has he built")
   ) {
 
-    return "Grey's portfolio includes his Personal Portfolio, GREY AI and the GREY Audio System.";
+    return "Grey's portfolio includes his Personal Portfolio, GREY AI and the GREY Audio System. 🚀";
 
   }
 
@@ -1115,10 +1222,11 @@ function greyFindAnswer(question) {
 
   if (
     q.includes("grey ai") ||
-    q.includes("ai assistant")
+    q.includes("ai assistant") ||
+    q.includes("what is grey ai")
   ) {
 
-    return "GREY AI is the personal portfolio assistant created for Ciexturicia Grey. It helps visitors learn about Grey and can also provide basic technology information.";
+    return "GREY AI is the personal portfolio assistant created for Ciexturicia Grey. It helps visitors learn about Grey and can also provide basic technology information. 🤖";
 
   }
 
@@ -1151,8 +1259,9 @@ function greyFindAnswer(question) {
 
   if (
     q === "javascript" ||
+    q === "js" ||
     q.includes("what is javascript") ||
-    q === "js"
+    q.includes("what is js")
   ) {
 
     return "JavaScript is a programming language used to make websites interactive and dynamic.";
@@ -1177,7 +1286,8 @@ function greyFindAnswer(question) {
 
   if (
     q.includes("full stack") ||
-    q.includes("full-stack")
+    q.includes("full-stack") ||
+    q.includes("fullstack")
   ) {
 
     return "A full-stack developer works on both the frontend and backend of websites or applications.";
@@ -1189,7 +1299,8 @@ function greyFindAnswer(question) {
 
   if (
     q.includes("robotics") ||
-    q.includes("robots")
+    q.includes("robots") ||
+    q.includes("robot")
   ) {
 
     return "Robotics combines programming, electronics and engineering to design and control robots.";
@@ -1202,10 +1313,11 @@ function greyFindAnswer(question) {
   if (
     q === "help" ||
     q.includes("what can i ask") ||
+    q.includes("what can i ask you") ||
     q.includes("what do you know")
   ) {
 
-    return "You can ask me about Darglous's identity, education, goals, programming, web design, technology, music, gaming, projects, friends, family, school or GREY AI.";
+    return "You can ask me about Darglous's identity, education, goals, programming, web design, technology, music, gaming, hobbies, projects, friends, family, school or GREY AI.";
 
   }
 
@@ -1223,7 +1335,7 @@ function greyFindAnswer(question) {
   }
 
 
-  /* OH / OKAY */
+  /* OKAY / REACTIONS */
 
   if (
     q === "oh" ||
@@ -1255,7 +1367,7 @@ function greyFindAnswer(question) {
 
   /* DEFAULT */
 
-  return "I'm not sure about that yet. 🤖 Try asking me about Grey's skills, projects, education, goals, music, gaming, friends or technology.";
+  return "I'm not sure about that yet. 🤖 Try asking me about Grey's skills, projects, education, goals, hobbies, music, gaming, friends or technology.";
 
 }
 
@@ -1302,11 +1414,6 @@ function greyAddMessage(
     document.createElement("div");
 
 
-  /*
-     Supports the classes already used
-     by your portfolio.
-  */
-
   if (sender === "user") {
 
     element.className =
@@ -1320,7 +1427,8 @@ function greyAddMessage(
   }
 
 
-  element.textContent = message;
+  element.textContent =
+    message;
 
   chat.appendChild(element);
 
@@ -1381,7 +1489,6 @@ async function sendGreyMessage() {
 
   input.value = "";
 
-
   chat.scrollTop =
     chat.scrollHeight;
 
@@ -1397,20 +1504,13 @@ async function sendGreyMessage() {
   });
 
 
-  /*
-     First try the local knowledge system.
-     This means basic portfolio questions
-     can work even if the backend is unavailable.
-  */
+  /* LOCAL ANSWER */
 
   const localAnswer =
     greyFindAnswer(message);
 
 
-  /*
-     Questions clearly about Grey's portfolio
-     are answered locally for reliability.
-  */
+  /* PORTFOLIO QUESTION */
 
   const portfolioQuestion =
     greyHasAny(
@@ -1427,7 +1527,8 @@ async function sendGreyMessage() {
         "games",
         "gaming",
         "birthday",
-        "skills"
+        "skills",
+        "hobbies"
       ]
     );
 
@@ -1458,10 +1559,7 @@ async function sendGreyMessage() {
   }
 
 
-  /*
-     For general questions, try your
-     existing backend.
-  */
+  /* THINKING MESSAGE */
 
   const thinkingMessage =
     document.createElement("div");
@@ -1475,7 +1573,6 @@ async function sendGreyMessage() {
   chat.appendChild(
     thinkingMessage
   );
-
 
   chat.scrollTop =
     chat.scrollHeight;
@@ -1557,13 +1654,11 @@ async function sendGreyMessage() {
     );
 
 
-    /*
-       If the online backend fails,
-       use the local answer instead.
-    */
+    /* LOCAL FALLBACK */
 
     thinkingMessage.textContent =
       localAnswer;
+
 
     greyConversation.push({
 
@@ -1714,4 +1809,3 @@ document.addEventListener(
 console.log(
   "GREY AI + CLOCK + MUSIC PLAYER ONLINE ✓"
 );
-

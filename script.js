@@ -1,7 +1,8 @@
 /* =====================================
    CIEXTURICIA GREY
    MAIN JAVASCRIPT
-   CLOCK + MUSIC PLAYER + GREY AI
+   CLOCK + MUSIC + GREY AI + COMMAND CENTER
+   + VOICE INPUT + VOICE OUTPUT
 ===================================== */
 
 
@@ -83,7 +84,7 @@ setInterval(updateGreyClock, 1000);
 
 
 /* =====================================
-   3. GREY FUTURISTIC MUSIC PLAYER
+   3. MUSIC PLAYER
 ===================================== */
 
 const audio =
@@ -164,7 +165,7 @@ function formatTime(seconds) {
 }
 
 
-/* ---------- LOAD SONG ---------- */
+/* LOAD SONG */
 
 function loadSong(index) {
 
@@ -203,19 +204,17 @@ function loadSong(index) {
   }
 
   if (currentTime) {
-    currentTime.textContent =
-      "0:00";
+    currentTime.textContent = "0:00";
   }
 
   if (duration) {
-    duration.textContent =
-      "0:00";
+    duration.textContent = "0:00";
   }
 
 }
 
 
-/* ---------- PLAY ---------- */
+/* PLAY */
 
 function playSong() {
 
@@ -238,16 +237,12 @@ function playSong() {
         error
       );
 
-      if (playBtn) {
-        playBtn.textContent = "▶";
-      }
-
     });
 
 }
 
 
-/* ---------- PAUSE ---------- */
+/* PAUSE */
 
 function pauseSong() {
 
@@ -264,7 +259,7 @@ function pauseSong() {
 }
 
 
-/* ---------- PLAY / PAUSE ---------- */
+/* PLAY / PAUSE */
 
 if (playBtn && audio) {
 
@@ -284,7 +279,7 @@ if (playBtn && audio) {
 }
 
 
-/* ---------- NEXT SONG ---------- */
+/* NEXT */
 
 function nextSong() {
 
@@ -295,7 +290,7 @@ function nextSong() {
 }
 
 
-/* ---------- PREVIOUS SONG ---------- */
+/* PREVIOUS */
 
 function previousSong() {
 
@@ -306,7 +301,7 @@ function previousSong() {
 }
 
 
-/* ---------- SONG SELECTOR ---------- */
+/* SONG SELECTOR */
 
 if (songSelect) {
 
@@ -335,7 +330,7 @@ if (songSelect) {
 }
 
 
-/* ---------- PREVIOUS BUTTON ---------- */
+/* PREVIOUS BUTTON */
 
 if (prevBtn) {
 
@@ -347,7 +342,7 @@ if (prevBtn) {
 }
 
 
-/* ---------- NEXT BUTTON ---------- */
+/* NEXT BUTTON */
 
 if (nextBtn) {
 
@@ -359,7 +354,7 @@ if (nextBtn) {
 }
 
 
-/* ---------- MUSIC PROGRESS ---------- */
+/* MUSIC PROGRESS */
 
 if (audio && progress) {
 
@@ -435,7 +430,7 @@ if (audio && progress) {
 }
 
 
-/* ---------- VOLUME ---------- */
+/* VOLUME */
 
 if (audio && volume) {
 
@@ -455,13 +450,13 @@ if (audio && volume) {
 }
 
 
-/* ---------- INITIAL MUSIC ---------- */
+/* INITIAL SONG */
 
 loadSong(0);
 
 
 /* ==========================================
-   4. GREY AI KNOWLEDGE BASE
+   4. GREY AI KNOWLEDGE
 ========================================== */
 
 const greyKnowledge = {
@@ -492,8 +487,7 @@ const greyKnowledge = {
       "Hardworking"
     ],
 
-    motivation:
-      "Passion",
+    motivation: "Passion",
 
     birthday: {
       month: 8,
@@ -510,7 +504,6 @@ const greyKnowledge = {
 
 
   interests: [
-
     "Programming",
     "Web designing",
     "Artificial intelligence",
@@ -521,7 +514,6 @@ const greyKnowledge = {
     "Watching movies",
     "Traveling",
     "Exploring new places"
-
   ],
 
 
@@ -606,7 +598,7 @@ const greyKnowledge = {
     "Kajjumba Mary",
     "Felisha",
     "Nabunya Concepta",
-    "Musenero Alice Monitor",
+    "Musenero Alice",
     "Kissa Isaac",
     "Melisha",
     "Monitor",
@@ -662,25 +654,15 @@ const greyKnowledge = {
 
 
 /* ==========================================
-   5. GREY AI HELPERS
+   5. HELPERS
 ========================================== */
 
 function greyNormalize(text) {
 
   return String(text)
-
     .toLowerCase()
-
-    .replace(
-      /[^a-z0-9\s'-]/g,
-      " "
-    )
-
-    .replace(
-      /\s+/g,
-      " "
-    )
-
+    .replace(/[^a-z0-9\s'-]/g, " ")
+    .replace(/\s+/g, " ")
     .trim();
 
 }
@@ -690,10 +672,9 @@ function greyHasAny(text, words) {
 
   return words.some(word => {
 
-    const normalized =
-      greyNormalize(word);
-
-    return text.includes(normalized);
+    return text.includes(
+      greyNormalize(word)
+    );
 
   });
 
@@ -743,8 +724,6 @@ function greyFindAnswer(question) {
   }
 
 
-  /* GREETINGS */
-
   if (
     /^(hi|hello|hey|yo|hiya|sup)$/.test(q) ||
     q.includes("good morning") ||
@@ -757,8 +736,6 @@ function greyFindAnswer(question) {
   }
 
 
-  /* WHO ARE YOU */
-
   if (
     q.includes("who are you") ||
     q.includes("what are you") ||
@@ -770,8 +747,6 @@ function greyFindAnswer(question) {
 
   }
 
-
-  /* WHO IS GREY */
 
   if (
     q.includes("who is grey") ||
@@ -792,8 +767,6 @@ function greyFindAnswer(question) {
   }
 
 
-  /* REAL NAME */
-
   if (
     q.includes("real name") ||
     q.includes("actual name") ||
@@ -806,8 +779,6 @@ function greyFindAnswer(question) {
   }
 
 
-  /* NICKNAME */
-
   if (
     q.includes("nickname") ||
     q.includes("nicknames") ||
@@ -819,8 +790,6 @@ function greyFindAnswer(question) {
 
   }
 
-
-  /* DREAM / CAREER */
 
   if (
     q.includes("dream") ||
@@ -839,8 +808,6 @@ function greyFindAnswer(question) {
   }
 
 
-  /* EDUCATION */
-
   if (
     q.includes("education") ||
     q.includes("certificate") ||
@@ -854,8 +821,6 @@ function greyFindAnswer(question) {
 
   }
 
-
-  /* SKILLS */
 
   if (
     q.includes("skills") ||
@@ -872,8 +837,6 @@ function greyFindAnswer(question) {
   }
 
 
-  /* PROGRAMMING */
-
   if (
     q.includes("programming") ||
     q.includes("coding") ||
@@ -885,8 +848,6 @@ function greyFindAnswer(question) {
 
   }
 
-
-  /* WEB DESIGN */
 
   if (
     q.includes("web design") ||
@@ -901,8 +862,6 @@ function greyFindAnswer(question) {
   }
 
 
-  /* TECHNOLOGY */
-
   if (
     q.includes("technology") ||
     q.includes("tech") ||
@@ -915,8 +874,6 @@ function greyFindAnswer(question) {
 
   }
 
-
-  /* HOBBIES / INTERESTS */
 
   if (
     q.includes("hobbies") ||
@@ -934,8 +891,6 @@ function greyFindAnswer(question) {
   }
 
 
-  /* MUSIC */
-
   if (
     q.includes("music") ||
     q.includes("artist") ||
@@ -951,8 +906,6 @@ function greyFindAnswer(question) {
   }
 
 
-  /* GAMING */
-
   if (
     q.includes("gaming") ||
     q.includes("games") ||
@@ -966,8 +919,6 @@ function greyFindAnswer(question) {
   }
 
 
-  /* MOVIES */
-
   if (
     q.includes("movies") ||
     q.includes("films") ||
@@ -978,8 +929,6 @@ function greyFindAnswer(question) {
 
   }
 
-
-  /* TRAVEL */
 
   if (
     q.includes("travel") ||
@@ -994,8 +943,6 @@ function greyFindAnswer(question) {
   }
 
 
-  /* FRIENDS */
-
   if (
     q.includes("friends") ||
     q.includes("friendship") ||
@@ -1007,8 +954,6 @@ function greyFindAnswer(question) {
 
   }
 
-
-  /* SPECIFIC FRIENDS */
 
   if (
     q.includes("namubiru") ||
@@ -1050,8 +995,6 @@ function greyFindAnswer(question) {
   }
 
 
-  /* FAMILY */
-
   if (
     q.includes("family") ||
     q.includes("family members")
@@ -1061,8 +1004,6 @@ function greyFindAnswer(question) {
 
   }
 
-
-  /* MOTHER */
 
   if (
     q.includes("mother") ||
@@ -1075,8 +1016,6 @@ function greyFindAnswer(question) {
   }
 
 
-  /* FATHER */
-
   if (
     q.includes("father") ||
     q.includes("dad")
@@ -1086,8 +1025,6 @@ function greyFindAnswer(question) {
 
   }
 
-
-  /* LITTLE BROTHER */
 
   if (
     q.includes("little brother") ||
@@ -1100,8 +1037,6 @@ function greyFindAnswer(question) {
   }
 
 
-  /* OLDER BROTHER */
-
   if (
     q.includes("older brother") ||
     q.includes("ssenfuka")
@@ -1111,8 +1046,6 @@ function greyFindAnswer(question) {
 
   }
 
-
-  /* ELDER BROTHER */
 
   if (
     q.includes("elder brother") ||
@@ -1125,8 +1058,6 @@ function greyFindAnswer(question) {
   }
 
 
-  /* AUNT */
-
   if (
     q.includes("aunt") ||
     q.includes("birungi rose")
@@ -1136,8 +1067,6 @@ function greyFindAnswer(question) {
 
   }
 
-
-  /* GRANDMOTHER */
 
   if (
     q.includes("grandmother") ||
@@ -1150,8 +1079,6 @@ function greyFindAnswer(question) {
   }
 
 
-  /* SCHOOL */
-
   if (
     q.includes("school") ||
     q.includes("merryhill") ||
@@ -1162,8 +1089,6 @@ function greyFindAnswer(question) {
 
   }
 
-
-  /* BIRTHDAY */
 
   if (
     q.includes("birthday") ||
@@ -1176,8 +1101,6 @@ function greyFindAnswer(question) {
 
   }
 
-
-  /* FAVORITE COLORS */
 
   if (
     q.includes("favorite color") ||
@@ -1200,7 +1123,7 @@ function greyFindAnswer(question) {
     q.includes("what has he built")
   ) {
 
-    return "Grey's portfolio includes his Personal Portfolio, GREY AI and the GREY Audio System. 🚀";
+    return "Grey's portfolio includes his Personal Portfolio, GREY AI, GREY Audio System, live digital clock and interactive Command Center. 🚀";
 
   }
 
@@ -1226,7 +1149,7 @@ function greyFindAnswer(question) {
     q.includes("what is grey ai")
   ) {
 
-    return "GREY AI is the personal portfolio assistant created for Ciexturicia Grey. It helps visitors learn about Grey and can also provide basic technology information. 🤖";
+    return "GREY AI is the personal portfolio assistant created for Ciexturicia Grey. It helps visitors learn about Grey and can also provide technology information. 🤖";
 
   }
 
@@ -1322,7 +1245,7 @@ function greyFindAnswer(question) {
   }
 
 
-  /* THANK YOU */
+  /* THANKS */
 
   if (
     q === "thanks" ||
@@ -1335,7 +1258,7 @@ function greyFindAnswer(question) {
   }
 
 
-  /* OKAY / REACTIONS */
+  /* REACTIONS */
 
   if (
     q === "oh" ||
@@ -1365,8 +1288,6 @@ function greyFindAnswer(question) {
   }
 
 
-  /* DEFAULT */
-
   return "I'm not sure about that yet. 🤖 Try asking me about Grey's skills, projects, education, goals, hobbies, music, gaming, friends or technology.";
 
 }
@@ -1390,7 +1311,7 @@ function getGreyChatContainer() {
 }
 
 
-/* ---------- ADD MESSAGE ---------- */
+/* ADD MESSAGE */
 
 function greyAddMessage(
   message,
@@ -1413,19 +1334,10 @@ function greyAddMessage(
   const element =
     document.createElement("div");
 
-
-  if (sender === "user") {
-
-    element.className =
-      "ai-message user";
-
-  } else {
-
-    element.className =
-      "ai-message bot";
-
-  }
-
+  element.className =
+    sender === "user"
+      ? "ai-message user"
+      : "ai-message bot";
 
   element.textContent =
     message;
@@ -1471,21 +1383,12 @@ async function sendGreyMessage() {
   }
 
 
-  /* SHOW USER MESSAGE */
+  /* USER MESSAGE */
 
-  const userMessage =
-    document.createElement("div");
-
-  userMessage.className =
-    "ai-message user";
-
-  userMessage.textContent =
-    message;
-
-  chat.appendChild(
-    userMessage
+  greyAddMessage(
+    message,
+    "user"
   );
-
 
   input.value = "";
 
@@ -1493,12 +1396,9 @@ async function sendGreyMessage() {
     chat.scrollHeight;
 
 
-  /* SAVE CONVERSATION */
-
   greyConversation.push({
 
     role: "user",
-
     content: message
 
   });
@@ -1533,6 +1433,8 @@ async function sendGreyMessage() {
     );
 
 
+  /* LOCAL PORTFOLIO RESPONSE */
+
   if (portfolioQuestion) {
 
     setTimeout(() => {
@@ -1540,26 +1442,25 @@ async function sendGreyMessage() {
       greyConversation.push({
 
         role: "assistant",
-
         content: localAnswer
 
       });
-
 
       greyAddMessage(
         localAnswer,
         "bot"
       );
 
-    }, 350);
+      speakGrey(localAnswer);
 
+    }, 350);
 
     return;
 
   }
 
 
-  /* THINKING MESSAGE */
+  /* THINKING */
 
   const thinkingMessage =
     document.createElement("div");
@@ -1588,10 +1489,8 @@ async function sendGreyMessage() {
           method: "POST",
 
           headers: {
-
             "Content-Type":
               "application/json"
-
           },
 
           body: JSON.stringify({
@@ -1634,7 +1533,6 @@ async function sendGreyMessage() {
     greyConversation.push({
 
       role: "assistant",
-
       content: answer
 
     });
@@ -1646,6 +1544,11 @@ async function sendGreyMessage() {
     );
 
 
+    /* 🔊 SPEAK AI RESPONSE */
+
+    speakGrey(answer);
+
+
   } catch (error) {
 
     console.error(
@@ -1654,8 +1557,6 @@ async function sendGreyMessage() {
     );
 
 
-    /* LOCAL FALLBACK */
-
     thinkingMessage.textContent =
       localAnswer;
 
@@ -1663,10 +1564,14 @@ async function sendGreyMessage() {
     greyConversation.push({
 
       role: "assistant",
-
       content: localAnswer
 
     });
+
+
+    /* 🔊 SPEAK FALLBACK */
+
+    speakGrey(localAnswer);
 
   }
 
@@ -1679,7 +1584,6 @@ async function sendGreyMessage() {
 
 const greyInput =
   document.getElementById("ai-input");
-
 
 if (greyInput) {
 
@@ -1724,9 +1628,7 @@ window.askGrey =
   function(question) {
 
     const input =
-      document.getElementById(
-        "ai-input"
-      );
+      document.getElementById("ai-input");
 
     if (!input) {
       return;
@@ -1741,17 +1643,14 @@ window.askGrey =
 
 
 /* ==========================================
-   11. GREY AI OPEN / CLOSE
+   11. OPEN / CLOSE GREY AI
 ========================================== */
 
 window.toggleGreyAI =
   function() {
 
     const ai =
-      document.getElementById(
-        "grey-ai"
-      );
-
+      document.getElementById("grey-ai");
 
     if (!ai) {
 
@@ -1763,10 +1662,7 @@ window.toggleGreyAI =
 
     }
 
-
-    ai.classList.toggle(
-      "active"
-    );
+    ai.classList.toggle("active");
 
   };
 
@@ -1782,18 +1678,14 @@ document.addEventListener(
     const chat =
       getGreyChatContainer();
 
-
     if (
       chat &&
       chat.children.length === 0
     ) {
 
       greyAddMessage(
-
         "Yo! 👋 Welcome to Ciexturicia Grey's digital world. I'm Grey AI. Ask me anything about Grey!",
-
         "bot"
-
       );
 
     }
@@ -1803,400 +1695,695 @@ document.addEventListener(
 
 
 /* ==========================================
-   GREY AI ONLINE
+   13. COMMAND CENTER CLOCK
 ========================================== */
-
-console.log(
-  "GREY AI + CLOCK + MUSIC PLAYER ONLINE ✓"
-);
-
-// =========================================
-// GREY COMMAND CENTER - LIVE SYSTEM
-// =========================================
 
 function updateGreyCommandCenter() {
 
-  const clock = document.getElementById("grey-clock");
-  const date = document.getElementById("grey-date");
+  const clock =
+    document.getElementById("grey-clock");
 
-  // Stop if the Command Center isn't on the page
-  if (!clock || !date) return;
+  const date =
+    document.getElementById("grey-date");
 
-  const now = new Date();
+  if (!clock || !date) {
+    return;
+  }
 
-  // Live time
-  const hours = String(now.getHours()).padStart(2, "0");
-  const minutes = String(now.getMinutes()).padStart(2, "0");
-  const seconds = String(now.getSeconds()).padStart(2, "0");
 
-  clock.textContent = `${hours}:${minutes}:${seconds}`;
+  const now =
+    new Date();
 
-  // Live date
-  const dateText = now.toLocaleDateString("en-UG", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric"
-  });
 
-  date.textContent = dateText;
+  const hours =
+    String(now.getHours())
+      .padStart(2, "0");
+
+  const minutes =
+    String(now.getMinutes())
+      .padStart(2, "0");
+
+  const seconds =
+    String(now.getSeconds())
+      .padStart(2, "0");
+
+
+  clock.textContent =
+    `${hours}:${minutes}:${seconds}`;
+
+
+  date.textContent =
+    now.toLocaleDateString(
+      "en-UG",
+      {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      }
+    );
+
 }
 
 
-// Start the Command Center clock
 updateGreyCommandCenter();
 
+setInterval(
+  updateGreyCommandCenter,
+  1000
+);
 
-// Update every second
-setInterval(updateGreyCommandCenter, 1000);
 
-// ===================================
-// GREY LIVE SYSTEM ACTIVITY
-// ===================================
+/* ==========================================
+   14. LIVE SYSTEM ACTIVITY
+========================================== */
 
 const greyActivityMessages = [
-  "GREY AI system initialized",
-  "Portfolio interface active",
-  "Command center operational",
-  "Digital environment synchronized",
+
+  "GREY AI neural system initialized",
+
+  "Portfolio interface synchronized",
+
+  "Command Center monitoring active",
+
+  "Digital environment operational",
+
   "Technology stack loaded",
+
   "User interface running",
-  "GREY CORE monitoring active"
+
+  "GREY CORE monitoring active",
+
+  "Web systems synchronized",
+
+  "JavaScript engine operational",
+
+  "Portfolio security layer active",
+
+  "Interactive systems ready",
+
+  "Cloud AI connection monitored"
+
 ];
+
 
 let greyActivityIndex = 0;
 
+
+/* CREATE ACTIVITY */
+
 function updateGreyActivity() {
 
-  const log = document.getElementById("grey-activity-log");
+  const log =
+    document.getElementById(
+      "grey-activity-log"
+    );
 
-  if (!log) return;
+  if (!log) {
+    return;
+  }
 
-  const now = new Date();
 
-  const time = now.toLocaleTimeString("en-UG", {
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit"
-  });
+  const now =
+    new Date();
 
-  const message =
-    greyActivityMessages[greyActivityIndex];
 
-  const activity = document.createElement("div");
+  const time =
+    now.toLocaleTimeString(
+      "en-UG",
+      {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+      }
+    );
 
-  activity.className = "activity-line";
 
-  const dot = document.createElement("span");
+  /*
+     Dynamic messages based
+     on what the portfolio is doing.
+  */
 
-  const text = document.createElement("span");
+  let message;
 
-  text.textContent = `${time} — ${message}`;
 
-  activity.append(dot, text);
+  if (
+    audio &&
+    !audio.paused &&
+    songTitle
+  ) {
+
+    message =
+      `GREY AUDIO SYSTEM playing ${songTitle.textContent}`;
+
+  }
+
+  else if (
+    voiceOutput &&
+    voiceOutput.checked
+  ) {
+
+    message =
+      "GREY AI voice output system active";
+
+  }
+
+  else if (
+    typeof recognition !== "undefined" &&
+    isListening
+  ) {
+
+    message =
+      "GREY AI microphone listening";
+
+  }
+
+  else {
+
+    message =
+      greyActivityMessages[
+        greyActivityIndex
+      ];
+
+  }
+
+
+  const activity =
+    document.createElement("div");
+
+  activity.className =
+    "activity-line";
+
+
+  const dot =
+    document.createElement("span");
+
+  const text =
+    document.createElement("span");
+
+
+  text.textContent =
+    `${time} — ${message}`;
+
+
+  activity.append(
+    dot,
+    text
+  );
+
 
   log.prepend(activity);
 
-  while (log.children.length > 4) {
+
+  while (
+    log.children.length > 4
+  ) {
+
     log.lastElementChild.remove();
+
   }
 
+
   greyActivityIndex =
-    (greyActivityIndex + 1) % greyActivityMessages.length;
+    (
+      greyActivityIndex + 1
+    ) %
+    greyActivityMessages.length;
+
 }
 
-// First activity
+
+/* FIRST ACTIVITY */
+
 updateGreyActivity();
 
-// New activity every 8 seconds
-setInterval(updateGreyActivity, 8000);
 
-// ======================================================
-// GREY AI COMMAND CENTER STATUS
-// ======================================================
+/* NEW ACTIVITY */
+
+setInterval(
+  updateGreyActivity,
+  8000
+);
+
+
+/* ==========================================
+   15. GREY AI BACKEND STATUS
+========================================== */
 
 async function checkGreyAIStatus() {
 
-  const status = document.getElementById("greyAiStatus");
-  const text = document.getElementById("greyAiStatusText");
+  const status =
+    document.getElementById(
+      "greyAiStatus"
+    );
 
-  if (!status || !text) return;
+  const text =
+    document.getElementById(
+      "greyAiStatusText"
+    );
+
+
+  if (!status || !text) {
+    return;
+  }
+
+
+  text.textContent =
+    "CHECKING...";
+
 
   try {
 
-    const response = await fetch(
-      "https://grey-ai-backend.legitmategrey.workers.dev/",
-      {
-        method: "GET",
-        cache: "no-store"
-      }
-    );
+    const response =
+      await fetch(
+        "https://grey-ai-backend.legitmategrey.workers.dev/",
+        {
+          method: "GET",
+          cache: "no-store"
+        }
+      );
 
-    if (response.ok) {
 
-      status.classList.remove("offline");
-      status.classList.add("online");
+    if (!response.ok) {
+      throw new Error(
+        "Server returned " +
+        response.status
+      );
+    }
 
-      text.textContent = "ONLINE";
 
-    } else {
+    const data =
+      await response.json();
 
-      throw new Error("Backend unavailable");
+
+    if (
+      data.success === true &&
+      data.status === "online"
+    ) {
+
+      status.classList.remove(
+        "offline"
+      );
+
+      status.classList.add(
+        "online"
+      );
+
+      text.textContent =
+        "ONLINE";
 
     }
 
-  } catch (error) {
+    else {
 
-    status.classList.remove("online");
-    status.classList.add("offline");
+      throw new Error(
+        "Invalid health response"
+      );
 
-    text.textContent = "OFFLINE";
+    }
 
   }
+
+  catch (error) {
+
+    console.error(
+      "GREY AI STATUS ERROR:",
+      error
+    );
+
+
+    status.classList.remove(
+      "online"
+    );
+
+    status.classList.add(
+      "offline"
+    );
+
+    text.textContent =
+      "OFFLINE";
+
+  }
+
 }
 
 
-// Check when the portfolio loads
+/* INITIAL STATUS */
+
 checkGreyAIStatus();
 
 
-// Check again every 30 seconds
-setInterval(checkGreyAIStatus, 30000);
+/* CHECK EVERY 30 SECONDS */
 
-// ======================================================
-// GREY AI COMMAND CENTER STATUS
-// ======================================================
-
-async function checkGreyAIStatus() {
-
-  const status = document.getElementById("greyAiStatus");
-  const text = document.getElementById("greyAiStatusText");
-
-  if (!status || !text) return;
-
-  text.textContent = "CHECKING...";
-
-  try {
-
-    const response = await fetch(
-      "https://grey-ai-backend.legitmategrey.workers.dev/",
-      {
-        method: "GET",
-        cache: "no-store"
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error("Server returned " + response.status);
-    }
-
-    const data = await response.json();
-
-    if (data.success === true && data.status === "online") {
-
-      status.classList.remove("offline");
-      status.classList.add("online");
-
-      text.textContent = "ONLINE";
-
-    } else {
-
-      throw new Error("Invalid health response");
-
-    }
-
-  } catch (error) {
-
-    console.error("GREY AI STATUS ERROR:", error);
-
-    status.classList.remove("online");
-    status.classList.add("offline");
-
-    text.textContent = "OFFLINE";
-  }
-}
+setInterval(
+  checkGreyAIStatus,
+  30000
+);
 
 
-// Run when page loads
-document.addEventListener("DOMContentLoaded", () => {
+/* ==========================================
+   16. GREY AI VOICE SYSTEM
+========================================== */
 
-  checkGreyAIStatus();
+const voiceBtn =
+  document.getElementById(
+    "voiceBtn"
+  );
 
-  // Recheck every 30 seconds
-  setInterval(checkGreyAIStatus, 30000);
+const voiceStatus =
+  document.getElementById(
+    "voiceStatus"
+  );
 
-});
+const voiceOutput =
+  document.getElementById(
+    "voiceOutput"
+  );
 
-// ======================================================
-// GREY AI VOICE SYSTEM
-// ======================================================
-
-const voiceBtn = document.getElementById("voiceBtn");
-const voiceStatus = document.getElementById("voiceStatus");
-const voiceOutput = document.getElementById("voiceOutput");
-const aiInput = document.getElementById("ai-input");
+const aiInput =
+  document.getElementById(
+    "ai-input"
+  );
 
 
-// ======================================================
-// VOICE INPUT
-// ======================================================
+/* ==========================================
+   VOICE INPUT
+========================================== */
 
 const SpeechRecognition =
   window.SpeechRecognition ||
   window.webkitSpeechRecognition;
 
+
 let recognition = null;
+
 let isListening = false;
 
-if (SpeechRecognition) {
 
-  recognition = new SpeechRecognition();
+if (
+  SpeechRecognition &&
+  voiceBtn &&
+  voiceStatus &&
+  aiInput
+) {
 
-  recognition.lang = "en-US";
-  recognition.continuous = false;
-  recognition.interimResults = false;
-
-  recognition.onstart = function () {
-
-    isListening = true;
-
-    voiceBtn.classList.add("listening");
-
-    voiceBtn.textContent = "🔴";
-
-    voiceStatus.textContent = "Listening...";
-
-  };
+  recognition =
+    new SpeechRecognition();
 
 
-  recognition.onresult = function (event) {
-
-    const transcript =
-      event.results[0][0].transcript;
-
-    aiInput.value = transcript;
-
-    voiceStatus.textContent =
-      "Voice captured ✓";
-
-    // Automatically send the message
-    sendGreyMessage();
-
-  };
+  recognition.lang =
+    "en-US";
 
 
-  recognition.onerror = function (event) {
-
-    console.log(
-      "GREY AI voice error:",
-      event.error
-    );
-
-    voiceStatus.textContent =
-      "Voice error. Try again.";
-
-  };
+  recognition.continuous =
+    false;
 
 
-  recognition.onend = function () {
-
-    isListening = false;
-
-    voiceBtn.classList.remove("listening");
-
-    voiceBtn.textContent = "🎤";
-
-  };
+  recognition.interimResults =
+    false;
 
 
-  voiceBtn.addEventListener("click", function () {
+  recognition.onstart =
+    function() {
 
-    if (isListening) {
+      isListening =
+        true;
 
-      recognition.stop();
 
-      return;
+      voiceBtn.classList.add(
+        "listening"
+      );
+
+
+      voiceBtn.textContent =
+        "🔴";
+
+
+      voiceStatus.textContent =
+        "Listening...";
+
+    };
+
+
+  recognition.onresult =
+    function(event) {
+
+      const transcript =
+        event.results[0][0]
+          .transcript;
+
+
+      aiInput.value =
+        transcript;
+
+
+      voiceStatus.textContent =
+        "Voice captured ✓";
+
+
+      /* AUTOMATICALLY SEND */
+
+      sendGreyMessage();
+
+    };
+
+
+  recognition.onerror =
+    function(event) {
+
+      console.error(
+        "GREY AI voice error:",
+        event.error
+      );
+
+
+      voiceStatus.textContent =
+        "Voice error. Try again.";
+
+    };
+
+
+  recognition.onend =
+    function() {
+
+      isListening =
+        false;
+
+
+      voiceBtn.classList.remove(
+        "listening"
+      );
+
+
+      voiceBtn.textContent =
+        "🎤";
+
+
+      if (
+        voiceStatus
+      ) {
+
+        voiceStatus.textContent =
+          "Tap 🎤 to speak";
+
+      }
+
+    };
+
+
+  voiceBtn.addEventListener(
+    "click",
+    function() {
+
+      if (isListening) {
+
+        recognition.stop();
+
+        return;
+
+      }
+
+
+      try {
+
+        recognition.start();
+
+      }
+
+      catch (error) {
+
+        console.error(
+          "Voice start error:",
+          error
+        );
+
+      }
 
     }
+  );
 
-    try {
+}
 
-      recognition.start();
+else {
 
-    } catch (error) {
+  console.warn(
+    "GREY AI voice input is unavailable."
+  );
 
-      console.log(error);
+  if (voiceBtn) {
 
-    }
+    voiceBtn.disabled =
+      true;
 
-  });
+  }
 
-} else {
+  if (voiceStatus) {
 
-  voiceBtn.disabled = true;
+    voiceStatus.textContent =
+      "Voice input unavailable.";
 
-  voiceStatus.textContent =
-    "Voice input is not supported by this browser.";
+  }
 
 }
 
 
-// ======================================================
-// VOICE OUTPUT
-// ======================================================
+/* ==========================================
+   17. VOICE OUTPUT
+========================================== */
 
 function speakGrey(text) {
 
-  if (!("speechSynthesis" in window)) {
-
-    console.log(
-      "Speech synthesis is not supported."
-    );
-
-    return;
-
-  }
-
-  if (!voiceOutput.checked) {
+  if (
+    !text ||
+    !("speechSynthesis" in window)
+  ) {
 
     return;
 
   }
 
 
-  // Stop anything currently speaking
+  if (
+    !voiceOutput ||
+    !voiceOutput.checked
+  ) {
+
+    return;
+
+  }
+
+
+  /* STOP PREVIOUS SPEECH */
 
   window.speechSynthesis.cancel();
 
 
   const speech =
-    new SpeechSynthesisUtterance(text);
+    new SpeechSynthesisUtterance(
+      text
+    );
 
 
-  speech.lang = "en-US";
-
-  speech.rate = 0.95;
-
-  speech.pitch = 1;
-
-  speech.volume = 1;
+  speech.lang =
+    "en-US";
 
 
-  window.speechSynthesis.speak(speech);
+  speech.rate =
+    0.95;
+
+
+  speech.pitch =
+    1;
+
+
+  speech.volume =
+    1;
+
+
+  speech.onstart =
+    function() {
+
+      if (voiceStatus) {
+
+        voiceStatus.textContent =
+          "GREY AI is speaking...";
+
+      }
+
+    };
+
+
+  speech.onend =
+    function() {
+
+      if (voiceStatus) {
+
+        voiceStatus.textContent =
+          "Tap 🎤 to speak";
+
+      }
+
+    };
+
+
+  window.speechSynthesis.speak(
+    speech
+  );
 
 }
 
 
-// ======================================================
-// STOP GREY'S VOICE
-// ======================================================
+/* ==========================================
+   18. STOP GREY VOICE
+========================================== */
 
 function stopGreyVoice() {
 
-  if ("speechSynthesis" in window) {
+  if (
+    "speechSynthesis" in window
+  ) {
 
     window.speechSynthesis.cancel();
 
   }
 
 }
+
+
+/* GLOBAL */
+
+window.speakGrey =
+  speakGrey;
+
+
+window.stopGreyVoice =
+  stopGreyVoice;
+
+
+/* ==========================================
+   19. SYSTEM ONLINE
+========================================== */
+
+console.log(
+  "GREY SYSTEM ONLINE ✓"
+);
+
+console.log(
+  "CLOCK ✓"
+);
+
+console.log(
+  "MUSIC PLAYER ✓"
+);
+
+console.log(
+  "GREY AI ✓"
+);
+
+console.log(
+  "COMMAND CENTER ✓"
+);
+
+console.log(
+  "VOICE SYSTEM ✓"
+);

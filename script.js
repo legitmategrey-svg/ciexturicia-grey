@@ -1910,3 +1910,55 @@ updateGreyActivity();
 
 // New activity every 8 seconds
 setInterval(updateGreyActivity, 8000);
+
+// ======================================================
+// GREY AI COMMAND CENTER STATUS
+// ======================================================
+
+async function checkGreyAIStatus() {
+
+  const status = document.getElementById("greyAiStatus");
+  const text = document.getElementById("greyAiStatusText");
+
+  if (!status || !text) return;
+
+  try {
+
+    const response = await fetch(
+      "https://grey-ai-backend.legitmategrey.workers.dev/",
+      {
+        method: "GET",
+        cache: "no-store"
+      }
+    );
+
+    if (response.ok) {
+
+      status.classList.remove("offline");
+      status.classList.add("online");
+
+      text.textContent = "ONLINE";
+
+    } else {
+
+      throw new Error("Backend unavailable");
+
+    }
+
+  } catch (error) {
+
+    status.classList.remove("online");
+    status.classList.add("offline");
+
+    text.textContent = "OFFLINE";
+
+  }
+}
+
+
+// Check when the portfolio loads
+checkGreyAIStatus();
+
+
+// Check again every 30 seconds
+setInterval(checkGreyAIStatus, 30000);

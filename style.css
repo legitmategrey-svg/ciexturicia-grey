@@ -2623,3 +2623,176 @@ footer p {
     transform: scale(0.75);
   }
 }
+
+/* =====================================================
+   FORCE GREY AI BUTTON STYLE
+   ===================================================== */
+
+button.ask-grey-btn {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+
+  width: auto !important;
+  min-width: 190px !important;
+
+  padding: 14px 22px !important;
+
+  background: #061b20 !important;
+  background-image: none !important;
+
+  color: #00ffe0 !important;
+
+  border: 1px solid #00ffe0 !important;
+  border-radius: 999px !important;
+
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.5px !important;
+
+  box-shadow:
+    0 0 12px rgba(0, 255, 224, 0.18),
+    inset 0 0 12px rgba(0, 255, 224, 0.05) !important;
+
+  cursor: pointer !important;
+  outline: none !important;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease !important;
+}
+
+button.ask-grey-btn:hover {
+  background: #082b31 !important;
+  color: #00ffe0 !important;
+
+  border-color: #00ffe0 !important;
+
+  box-shadow:
+    0 0 25px rgba(0, 255, 224, 0.35),
+    inset 0 0 15px rgba(0, 255, 224, 0.08) !important;
+
+  transform: translateY(-2px) !important;
+}
+
+button.ask-grey-btn:active {
+  background: #041419 !important;
+  transform: scale(0.97) !important;
+}
+
+/* Remove browser focus white styling */
+button.ask-grey-btn:focus,
+button.ask-grey-btn:focus-visible {
+  outline: none !important;
+  background: #061b20 !important;
+  color: #00ffe0 !important;
+}
+
+/* =====================================================
+   GREY AI COMMAND CENTER STATUS
+   ===================================================== */
+
+.ai-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  width: fit-content;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+
+  transition: 0.3s ease;
+}
+
+
+/* ONLINE */
+
+.ai-status.online {
+  color: #00ffae;
+
+  background: rgba(0, 255, 174, 0.07);
+
+  border: 1px solid rgba(0, 255, 174, 0.35);
+
+  box-shadow:
+    0 0 15px rgba(0, 255, 174, 0.08);
+}
+
+
+/* OFFLINE */
+
+.ai-status.offline {
+  color: #ff4d6d;
+
+  background: rgba(255, 77, 109, 0.07);
+
+  border: 1px solid rgba(255, 77, 109, 0.35);
+
+  box-shadow:
+    0 0 15px rgba(255, 77, 109, 0.08);
+}
+
+
+/* STATUS DOT */
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #888;
+
+  transition: 0.3s ease;
+}
+
+
+/* ONLINE DOT */
+
+.ai-status.online .status-dot {
+  background: #00ffae;
+
+  box-shadow:
+    0 0 6px #00ffae,
+    0 0 14px rgba(0, 255, 174, 0.8);
+
+  animation: greyAiPulse 1.5s infinite;
+}
+
+
+/* OFFLINE DOT */
+
+.ai-status.offline .status-dot {
+  background: #ff4d6d;
+
+  box-shadow:
+    0 0 6px #ff4d6d,
+    0 0 14px rgba(255, 77, 109, 0.6);
+}
+
+
+@keyframes greyAiPulse {
+
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.45;
+    transform: scale(0.75);
+  }
+
+}

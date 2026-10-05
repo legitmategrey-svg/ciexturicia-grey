@@ -2131,26 +2131,27 @@ if (
 
 
   recognition.onresult =
-    function(event) {
+  function(event) {
 
-      const transcript =
-        event.results[0][0]
-          .transcript;
+    const transcript =
+      event.results[0][0]
+        .transcript
+        .trim();
 
+    if (transcript) {
 
       aiInput.value =
         transcript;
 
-
       voiceStatus.textContent =
         "Voice captured ✓";
 
+      /* Put cursor at the end */
+      aiInput.focus();
 
-      /* AUTOMATICALLY SEND */
+    }
 
-      sendGreyMessage();
-
-    };
+  };
 
 
   recognition.onerror =

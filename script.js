@@ -1974,6 +1974,8 @@ async function checkGreyAIStatus() {
 
   if (!status || !text) return;
 
+  text.textContent = "CHECKING...";
+
   try {
 
     const response = await fetch(
@@ -1984,7 +1986,13 @@ async function checkGreyAIStatus() {
       }
     );
 
-    if (response.ok) {
+    if (!response.ok) {
+      throw new Error("Server returned " + response.status);
+    }
+
+    const data = await response.json();
+
+    if (data.success === true && data.status === "online") {
 
       status.classList.remove("offline");
       status.classList.add("online");
@@ -1993,24 +2001,28 @@ async function checkGreyAIStatus() {
 
     } else {
 
-      throw new Error("Backend unavailable");
+      throw new Error("Invalid health response");
 
     }
 
   } catch (error) {
 
+    console.error("GREY AI STATUS ERROR:", error);
+
     status.classList.remove("online");
     status.classList.add("offline");
 
     text.textContent = "OFFLINE";
-
   }
 }
 
 
-// Check immediately
-checkGreyAIStatus();
+// Run when page loads
+document.addEventListener("DOMContentLoaded", () => {
 
+  checkGreyAIStatus();
 
-// Check every 30 seconds
-setInterval(checkGreyAIStatus, 30000);
+  // Recheck every 30 seconds
+  setInterval(checkGreyAIStatus, 30000);
+
+});

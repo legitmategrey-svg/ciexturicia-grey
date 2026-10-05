@@ -1809,3 +1809,104 @@ document.addEventListener(
 console.log(
   "GREY AI + CLOCK + MUSIC PLAYER ONLINE ✓"
 );
+
+// =========================================
+// GREY COMMAND CENTER - LIVE SYSTEM
+// =========================================
+
+function updateGreyCommandCenter() {
+
+  const clock = document.getElementById("grey-clock");
+  const date = document.getElementById("grey-date");
+
+  // Stop if the Command Center isn't on the page
+  if (!clock || !date) return;
+
+  const now = new Date();
+
+  // Live time
+  const hours = String(now.getHours()).padStart(2, "0");
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  const seconds = String(now.getSeconds()).padStart(2, "0");
+
+  clock.textContent = `${hours}:${minutes}:${seconds}`;
+
+  // Live date
+  const dateText = now.toLocaleDateString("en-UG", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  });
+
+  date.textContent = dateText;
+}
+
+
+// Start the Command Center clock
+updateGreyCommandCenter();
+
+
+// Update every second
+setInterval(updateGreyCommandCenter, 1000);
+
+// ===================================
+// GREY LIVE SYSTEM ACTIVITY
+// ===================================
+
+const greyActivityMessages = [
+  "GREY AI system initialized",
+  "Portfolio interface active",
+  "Command center operational",
+  "Digital environment synchronized",
+  "Technology stack loaded",
+  "User interface running",
+  "GREY CORE monitoring active"
+];
+
+let greyActivityIndex = 0;
+
+function updateGreyActivity() {
+
+  const log = document.getElementById("grey-activity-log");
+
+  if (!log) return;
+
+  const now = new Date();
+
+  const time = now.toLocaleTimeString("en-UG", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit"
+  });
+
+  const message =
+    greyActivityMessages[greyActivityIndex];
+
+  const activity = document.createElement("div");
+
+  activity.className = "activity-line";
+
+  const dot = document.createElement("span");
+
+  const text = document.createElement("span");
+
+  text.textContent = `${time} — ${message}`;
+
+  activity.append(dot, text);
+
+  log.prepend(activity);
+
+  while (log.children.length > 4) {
+    log.lastElementChild.remove();
+  }
+
+  greyActivityIndex =
+    (greyActivityIndex + 1) % greyActivityMessages.length;
+}
+
+// First activity
+updateGreyActivity();
+
+// New activity every 8 seconds
+setInterval(updateGreyActivity, 8000);

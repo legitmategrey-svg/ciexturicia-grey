@@ -400,7 +400,7 @@
     <p class="footer-copy">© 2026 • KEEP CREATING.</p>
   </footer>
 <!-- GREY AI ASSISTANT -->
-<section class="grey-ai" id="grey-ai">
+< class="grey-ai" id="grey-ai">
   <div class="ai-header">
     <div class="ai-avatar">G</div>
 
@@ -435,17 +435,58 @@
   </div>
 
   <div class="ai-input-area">
-    <input
-      type="text"
-      id="ai-input"
-      placeholder="Message Grey AI..."
-      autocomplete="off"
-    >
-    <button onclick="sendGreyMessage()">
-      ➤
-    </button>
-  </div>
+
+  <!-- 🎤 Voice Input -->
+  <button
+    id="voiceBtn"
+    class="voice-btn"
+    type="button"
+    title="Voice input">
+    🎤
+  </button>
+
+  <!-- 💬 Text Input -->
+  <input
+    type="text"
+    id="ai-input"
+    placeholder="Message Grey AI..."
+    autocomplete="off"
+  >
+
+  <!-- ➤ Send -->
+  <button
+    id="sendBtn"
+    class="send-btn"
+    type="button"
+    onclick="sendGreyMessage()">
+    ➤
+  </button>
+
+</div>
+
+<!-- Voice status -->
+<div
+  class="voice-status"
+  id="voiceStatus">
+  Tap 🎤 to speak
+</div>
+
+<!-- 🔊 Voice replies -->
+<label class="voice-toggle">
+  <input
+    type="checkbox"
+    id="voiceOutput">
+  🔊 Voice replies
+</label>
+
 </section>
+
+<button
+  class="ai-launcher"
+  type="button"
+  onclick="toggleGreyAI()">
+  🤖 <span>ASK GREY AI</span>
+</button>
 <button
   class="ai-launcher"
   type="button"

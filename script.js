@@ -2026,3 +2026,177 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(checkGreyAIStatus, 30000);
 
 });
+
+// ======================================================
+// GREY AI VOICE SYSTEM
+// ======================================================
+
+const voiceBtn = document.getElementById("voiceBtn");
+const voiceStatus = document.getElementById("voiceStatus");
+const voiceOutput = document.getElementById("voiceOutput");
+const aiInput = document.getElementById("ai-input");
+
+
+// ======================================================
+// VOICE INPUT
+// ======================================================
+
+const SpeechRecognition =
+  window.SpeechRecognition ||
+  window.webkitSpeechRecognition;
+
+let recognition = null;
+let isListening = false;
+
+if (SpeechRecognition) {
+
+  recognition = new SpeechRecognition();
+
+  recognition.lang = "en-US";
+  recognition.continuous = false;
+  recognition.interimResults = false;
+
+  recognition.onstart = function () {
+
+    isListening = true;
+
+    voiceBtn.classList.add("listening");
+
+    voiceBtn.textContent = "🔴";
+
+    voiceStatus.textContent = "Listening...";
+
+  };
+
+
+  recognition.onresult = function (event) {
+
+    const transcript =
+      event.results[0][0].transcript;
+
+    aiInput.value = transcript;
+
+    voiceStatus.textContent =
+      "Voice captured ✓";
+
+    // Automatically send the message
+    sendGreyMessage();
+
+  };
+
+
+  recognition.onerror = function (event) {
+
+    console.log(
+      "GREY AI voice error:",
+      event.error
+    );
+
+    voiceStatus.textContent =
+      "Voice error. Try again.";
+
+  };
+
+
+  recognition.onend = function () {
+
+    isListening = false;
+
+    voiceBtn.classList.remove("listening");
+
+    voiceBtn.textContent = "🎤";
+
+  };
+
+
+  voiceBtn.addEventListener("click", function () {
+
+    if (isListening) {
+
+      recognition.stop();
+
+      return;
+
+    }
+
+    try {
+
+      recognition.start();
+
+    } catch (error) {
+
+      console.log(error);
+
+    }
+
+  });
+
+} else {
+
+  voiceBtn.disabled = true;
+
+  voiceStatus.textContent =
+    "Voice input is not supported by this browser.";
+
+}
+
+
+// ======================================================
+// VOICE OUTPUT
+// ======================================================
+
+function speakGrey(text) {
+
+  if (!("speechSynthesis" in window)) {
+
+    console.log(
+      "Speech synthesis is not supported."
+    );
+
+    return;
+
+  }
+
+  if (!voiceOutput.checked) {
+
+    return;
+
+  }
+
+
+  // Stop anything currently speaking
+
+  window.speechSynthesis.cancel();
+
+
+  const speech =
+    new SpeechSynthesisUtterance(text);
+
+
+  speech.lang = "en-US";
+
+  speech.rate = 0.95;
+
+  speech.pitch = 1;
+
+  speech.volume = 1;
+
+
+  window.speechSynthesis.speak(speech);
+
+}
+
+
+// ======================================================
+// STOP GREY'S VOICE
+// ======================================================
+
+function stopGreyVoice() {
+
+  if ("speechSynthesis" in window) {
+
+    window.speechSynthesis.cancel();
+
+  }
+
+}

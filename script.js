@@ -595,21 +595,23 @@ const greyKnowledge = {
     "Ssempala Fred",
     "Matovu Fredrick",
     "Kade Martha Natasha",
-    "Kajjumba Mary",
+    "Kajjumba Mary ",
     "Felisha",
     "Nabunya Concepta",
     "Musenero Alice",
     "Kissa Isaac",
     "Melisha",
-    "Monitor",
+    "Musenero Alice Monitor",
     "Mugisha Kevin",
     "Kagoya Sophie",
     "Migadde Herbert Corllos",
     "Birungi Tracy",
     "Nakayo Patricia",
     "Nabbosa Sierra",
-    "Josephine",
-    "Wambazu Denis"
+    "Nabatte Josephine",
+    "Wambazu Denis",
+    "Nakalema Majorine",
+    "Kayondo Joseph Marius"
 
   ],
 

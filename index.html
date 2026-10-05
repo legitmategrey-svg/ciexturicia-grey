@@ -457,92 +457,135 @@
   <footer>
     <a href="#home" class="logo">CG<span>.</span></a>
     <p>Designed & built by Ciexturicia Grey.</p>
-    <p class="footer-copy">© 2026 • KEEP CREATING.</p>
-  </footer>
-<!-- GREY AI ASSISTANT -->
+    <!-- =====================================================
+     GREY AI ASSISTANT
+     ===================================================== -->
+
 <div class="grey-ai" id="grey-ai">
+
+  <!-- HEADER -->
   <div class="ai-header">
+
     <div class="ai-avatar">G</div>
 
     <div class="ai-info">
       <h2>GREY AI</h2>
-      <p><span class="online-dot"></span> ONLINE | PORTFOLIO ASSISTANT</p>
+      <p>
+        <span class="online-dot"></span>
+        ONLINE | PORTFOLIO ASSISTANT
+      </p>
     </div>
 
-    <button class="ai-close" onclick="toggleGreyAI()">
+    <button
+      class="ai-close"
+      type="button"
+      onclick="toggleGreyAI()"
+      aria-label="Close GREY AI">
       ×
     </button>
+
   </div>
 
+
+  <!-- CHAT -->
   <div class="ai-chat" id="ai-chat">
+
     <div class="ai-message bot">
       Yo! 👋 Welcome to Ciexturicia Grey's
       digital world. I'm Grey AI.
       Ask me anything about Grey!
     </div>
+
   </div>
 
+
+  <!-- QUICK QUESTIONS -->
   <div class="ai-quick">
-    <button onclick="askGrey('Who is Grey?')">
+
+    <button
+      type="button"
+      onclick="askGrey('Who is Grey?')">
       Who is Grey?
     </button>
-    <button onclick="askGrey('What are his skills?')">
+
+    <button
+      type="button"
+      onclick="askGrey('What are his skills?')">
       Skills
     </button>
-    <button onclick="askGrey('What are his hobbies?')">
+
+    <button
+      type="button"
+      onclick="askGrey('What are his hobbies?')">
       Hobbies
     </button>
+
   </div>
 
+
+  <!-- INPUT -->
   <div class="ai-input-area">
 
-  <button
-    id="voiceBtn"
-    class="voice-btn"
-    type="button"
-    title="Voice input">
-    🎤
-  </button>
+    <button
+      id="voiceBtn"
+      class="voice-btn"
+      type="button"
+      title="Voice input"
+      aria-label="Voice input">
+      🎤
+    </button>
 
-  <input
-    type="text"
-    id="ai-input"
-    placeholder="Message Grey AI..."
-    autocomplete="off"
-  >
+    <input
+      type="text"
+      id="ai-input"
+      placeholder="Message Grey AI..."
+      autocomplete="off">
 
-  <button
-    id="sendBtn"
-    class="send-btn"
-    type="button"
-    onclick="sendGreyMessage()">
-    ➤
-  </button>
+    <button
+      id="sendBtn"
+      class="send-btn"
+      type="button"
+      onclick="sendGreyMessage()"
+      aria-label="Send message">
+      ➤
+    </button>
+
+  </div>
+
+
+  <!-- VOICE CONTROLS -->
+  <div class="voice-controls">
+
+    <div
+      class="voice-status"
+      id="voiceStatus">
+      Tap 🎤 to speak
+    </div>
+
+    <label class="voice-toggle">
+      <input
+        type="checkbox"
+        id="voiceOutput">
+      <span>🔊 Voice replies</span>
+    </label>
+
+  </div>
 
 </div>
 
-<div
-  class="voice-status"
-  id="voiceStatus">
-  Tap 🎤 to speak
-</div>
 
-<label class="voice-toggle">
-  <input
-    type="checkbox"
-    id="voiceOutput">
-  🔊 Voice replies
-</label>
+<!-- =====================================================
+     GREY AI LAUNCHER
+     ===================================================== -->
 
-</div>
-
-<!-- GREY AI LAUNCHER -->
 <button
   class="ai-launcher"
   id="greyAiLauncher"
   type="button"
   onclick="toggleGreyAI()">
+
   🤖 <span>ASK GREY AI</span>
+
 </button>
   <script src="script.js" defer></script>
 

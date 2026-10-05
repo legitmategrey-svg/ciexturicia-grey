@@ -1668,7 +1668,33 @@ footer p {
   display: flex;
 }
 
+.grey-ai {
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
 
+  width: min(420px, calc(100vw - 40px));
+  height: min(650px, calc(100vh - 120px));
+
+  z-index: 9999;
+
+  display: none;
+
+  overflow: hidden;
+
+  background: #080f1d;
+
+  border: 1px solid rgba(0, 238, 255, 0.35);
+  border-radius: 22px;
+
+  box-shadow:
+    0 0 40px rgba(0, 238, 255, 0.2);
+}
+
+.grey-ai.active {
+  display: flex;
+  flex-direction: column;
+}
 /* HEADER */
 
 .ai-header {
@@ -2854,4 +2880,54 @@ button.ask-grey-btn:focus-visible {
   margin-top: 8px;
   font-size: 12px;
   cursor: pointer;
+}
+
+/* =====================================
+   GREY AI LAUNCHER
+===================================== */
+
+.ai-launcher {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9998;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-width: 190px;
+  height: 58px;
+
+  padding: 0 22px;
+
+  border: 1px solid rgba(0, 238, 255, 0.6);
+  border-radius: 30px;
+
+  background: rgba(5, 15, 30, 0.95);
+
+  color: #00eaff;
+
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 15px rgba(0, 238, 255, 0.35),
+    inset 0 0 15px rgba(0, 238, 255, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ai-launcher:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 25px rgba(0, 238, 255, 0.6),
+    inset 0 0 20px rgba(0, 238, 255, 0.12);
 }

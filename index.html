@@ -307,31 +307,13 @@
 
     <!-- SYSTEM ACTIVITY -->
     <div class="command-card activity-card">
-      <div class="card-icon">📡</div>
-      <h3>System Activity</h3>
+  <div class="card-icon">📡</div>
+  <h3>System Activity</h3>
 
-      <div class="activity-line">
-        <span></span>
-        Portfolio interface active
-      </div>
-
-      <div class="activity-line">
-        <span></span>
-        GREY AI initialized
-      </div>
-
-      <div class="activity-line">
-        <span></span>
-        Command center online
-      </div>
-
-      <div class="activity-line">
-        <span></span>
-        Awaiting user interaction
-      </div>
+  <div id="grey-activity-log"></div>
     </div>
 
-  </div>
+  </>
 
 </section>
     <section id="projects" class="section">
@@ -436,7 +418,6 @@
 
   <div class="ai-input-area">
 
-  <!-- 🎤 Voice Input -->
   <button
     id="voiceBtn"
     class="voice-btn"
@@ -445,7 +426,6 @@
     🎤
   </button>
 
-  <!-- 💬 Text Input -->
   <input
     type="text"
     id="ai-input"
@@ -453,7 +433,6 @@
     autocomplete="off"
   >
 
-  <!-- ➤ Send -->
   <button
     id="sendBtn"
     class="send-btn"
@@ -464,14 +443,12 @@
 
 </div>
 
-<!-- Voice status -->
 <div
   class="voice-status"
   id="voiceStatus">
   Tap 🎤 to speak
 </div>
 
-<!-- 🔊 Voice replies -->
 <label class="voice-toggle">
   <input
     type="checkbox"
@@ -479,16 +456,12 @@
   🔊 Voice replies
 </label>
 
-</section>
+</div>
 
+<!-- GREY AI LAUNCHER -->
 <button
   class="ai-launcher"
-  type="button"
-  onclick="toggleGreyAI()">
-  🤖 <span>ASK GREY AI</span>
-</button>
-<button
-  class="ai-launcher"
+  id="greyAiLauncher"
   type="button"
   onclick="toggleGreyAI()">
   🤖 <span>ASK GREY AI</span>

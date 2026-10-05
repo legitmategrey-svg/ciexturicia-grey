@@ -1447,9 +1447,11 @@ async function sendGreyMessage() {
       });
 
       greyAddMessage(
-        localAnswer,
-        "bot"
-      );
+  answer,
+  "bot"
+);
+
+speakGrey(answer);
 
       speakGrey(localAnswer);
 
@@ -1558,8 +1560,9 @@ async function sendGreyMessage() {
 
 
     thinkingMessage.textContent =
-      localAnswer;
+  localAnswer;
 
+speakGrey(localAnswer);
 
     greyConversation.push({
 

@@ -3648,3 +3648,701 @@ button.ask-grey-btn:focus-visible {
   }
 
 }
+
+/* =========================================================
+   GREY CONNECTIONS — FUTURISTIC DESIGN
+========================================================= */
+
+.grey-connections {
+  position: relative;
+  padding: 90px 20px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(0, 220, 255, 0.08),
+      transparent 55%
+    );
+}
+
+.connections-header {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.connections-header .section-number {
+  display: block;
+  margin-bottom: 12px;
+  color: #00eaff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.connections-header h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(28px, 6vw, 52px);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 10px rgba(0, 234, 255, 0.5),
+    0 0 30px rgba(0, 234, 255, 0.2);
+}
+
+.connections-header p {
+  margin-top: 12px;
+  color: rgba(220, 245, 255, 0.65);
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   CONNECTION SYSTEM
+========================================================= */
+
+.connections-system {
+  position: relative;
+  width: min(900px, 100%);
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+
+/* =========================================================
+   CYLINDRICAL CARDS
+========================================================= */
+
+.connection-card {
+  position: relative;
+
+  width: min(650px, 92%);
+  min-height: 105px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 20px 18px 28px;
+
+  border: 1px solid rgba(0, 234, 255, 0.35);
+  border-radius: 60px;
+
+  background:
+    linear-gradient(
+      110deg,
+      rgba(7, 18, 34, 0.96),
+      rgba(8, 35, 50, 0.82),
+      rgba(4, 14, 28, 0.96)
+    );
+
+  box-shadow:
+    inset 0 0 20px rgba(0, 234, 255, 0.04),
+    0 0 25px rgba(0, 234, 255, 0.08);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+
+/* glowing edge */
+
+.connection-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 234, 255, 0.18),
+      transparent
+    );
+
+  transform: translateX(-100%);
+  transition: transform 0.8s ease;
+}
+
+
+.connection-card:hover {
+  transform: translateX(8px);
+
+  border-color: rgba(0, 234, 255, 0.8);
+
+  box-shadow:
+    0 0 20px rgba(0, 234, 255, 0.2),
+    0 0 50px rgba(0, 234, 255, 0.08);
+}
+
+
+.connection-card:hover::before {
+  transform: translateX(100%);
+}
+
+
+/* =========================================================
+   CONNECTION INFORMATION
+========================================================= */
+
+.connection-info {
+  position: relative;
+  z-index: 2;
+}
+
+.connection-label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #00eaff;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.connection-info h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(16px, 3vw, 21px);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   CIRCULAR PHOTO
+========================================================= */
+
+.connection-photo {
+  position: relative;
+
+  width: 72px;
+  height: 72px;
+
+  flex: 0 0 72px;
+
+  border-radius: 50%;
+
+  padding: 3px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #00eaff,
+      transparent 45%,
+      #00ffc8
+    );
+
+  box-shadow:
+    0 0 15px rgba(0, 234, 255, 0.35);
+
+  z-index: 2;
+}
+
+.connection-photo::before {
+  content: "";
+
+  position: absolute;
+  inset: -6px;
+
+  border: 1px solid rgba(0, 234, 255, 0.25);
+  border-radius: 50%;
+
+  animation: connectionOrbit 4s linear infinite;
+}
+
+.connection-photo img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  background: #071321;
+}
+
+
+@keyframes connectionOrbit {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+/* =========================================================
+   GREY CENTRAL CORE
+========================================================= */
+
+.grey-connection-core {
+  position: relative;
+
+  width: 240px;
+
+  padding: 28px 20px;
+
+  text-align: center;
+
+  border: 1px solid rgba(0, 255, 200, 0.5);
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 255, 200, 0.12),
+      rgba(5, 15, 25, 0.96)
+    );
+
+  box-shadow:
+    0 0 25px rgba(0, 255, 200, 0.12),
+    inset 0 0 25px rgba(0, 255, 200, 0.05);
+
+  z-index: 5;
+}
+
+
+.core-ring {
+  width: 70px;
+  height: 70px;
+
+  margin: 0 auto 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #00ffc8;
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 15px rgba(0, 255, 200, 0.35);
+
+  animation: corePulse 2s ease-in-out infinite;
+}
+
+.core-ring span {
+  color: #00ffc8;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+
+.core-label {
+  display: block;
+
+  color: #00ffc8;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+
+.grey-connection-core h3 {
+  margin: 8px 0;
+
+  color: #ffffff;
+
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+
+.grey-connection-core p {
+  margin: 0;
+
+  color: rgba(220, 245, 255, 0.6);
+
+  font-size: 11px;
+}
+
+
+@keyframes corePulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 12px rgba(0, 255, 200, 0.25);
+  }
+
+  50% {
+    box-shadow:
+      0 0 30px rgba(0, 255, 200, 0.6);
+  }
+
+}
+
+
+/* =========================================================
+   DNA HELIX
+========================================================= */
+
+.dna-helix {
+  position: absolute;
+
+  left: 50%;
+  top: 70px;
+
+  width: 150px;
+  height: 620px;
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+
+  z-index: 1;
+
+  opacity: 0.7;
+}
+
+
+/* geometric DNA nodes */
+
+.dna-node {
+  position: absolute;
+
+  width: 12px;
+  height: 12px;
+
+  border: 1px solid #00eaff;
+
+  background: #071321;
+
+  transform: rotate(45deg);
+
+  box-shadow:
+    0 0 10px rgba(0, 234, 255, 0.7);
+
+  animation: dnaNodePulse 2s ease-in-out infinite;
+}
+
+
+.node-1 { top: 20px; left: 28px; }
+.node-2 { top: 85px; right: 28px; }
+.node-3 { top: 160px; left: 28px; }
+.node-4 { top: 235px; right: 28px; }
+.node-5 { top: 310px; left: 28px; }
+.node-6 { top: 385px; right: 28px; }
+.node-7 { top: 460px; left: 28px; }
+.node-8 { top: 535px; right: 28px; }
+
+
+/* DNA connecting bars */
+
+.dna-line {
+  position: absolute;
+
+  left: 50%;
+
+  width: 95px;
+  height: 2px;
+
+  transform-origin: center;
+
+  background:
+    linear-gradient(
+      90deg,
+      #00eaff,
+      #00ffc8,
+      #00eaff
+    );
+
+  box-shadow:
+    0 0 8px rgba(0, 234, 255, 0.7);
+
+  animation: dnaFlow 2.5s ease-in-out infinite;
+}
+
+
+.line-1 {
+  top: 50px;
+  transform: translateX(-50%) rotate(22deg);
+}
+
+.line-2 {
+  top: 125px;
+  transform: translateX(-50%) rotate(-22deg);
+}
+
+.line-3 {
+  top: 200px;
+  transform: translateX(-50%) rotate(22deg);
+}
+
+.line-4 {
+  top: 275px;
+  transform: translateX(-50%) rotate(-22deg);
+}
+
+.line-5 {
+  top: 350px;
+  transform: translateX(-50%) rotate(22deg);
+}
+
+.line-6 {
+  top: 425px;
+  transform: translateX(-50%) rotate(-22deg);
+}
+
+
+@keyframes dnaNodePulse {
+
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: rotate(45deg) scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: rotate(45deg) scale(1.2);
+  }
+
+}
+
+
+@keyframes dnaFlow {
+
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .grey-connections {
+    padding: 70px 12px;
+  }
+
+  .connections-header {
+    margin-bottom: 40px;
+  }
+
+  .connection-card {
+    width: 94%;
+    min-height: 92px;
+
+    padding:
+      14px
+      14px
+      14px
+      20px;
+
+    border-radius: 50px;
+  }
+
+  .connection-photo {
+    width: 60px;
+    height: 60px;
+    flex-basis: 60px;
+  }
+
+  .connection-info h3 {
+    font-size: 14px;
+  }
+
+  .connection-label {
+    font-size: 7px;
+  }
+
+  .grey-connection-core {
+    width: 205px;
+    padding: 23px 15px;
+  }
+
+  .dna-helix {
+    height: 570px;
+    width: 110px;
+  }
+
+  .dna-node {
+    width: 9px;
+    height: 9px;
+  }
+
+  .dna-line {
+    width: 70px;
+  }
+
+}
+
+/* =========================================================
+   GREY CONNECTIONS — INTERACTIVE EFFECTS
+========================================================= */
+
+.connection-card {
+  cursor: pointer;
+}
+
+.connection-active {
+  transform: translateX(12px) scale(1.02) !important;
+
+  border-color: #00ffc8 !important;
+
+  box-shadow:
+    0 0 25px rgba(0, 255, 200, 0.35),
+    0 0 60px rgba(0, 234, 255, 0.15),
+    inset 0 0 25px rgba(0, 255, 200, 0.08) !important;
+}
+
+.connection-active .connection-photo {
+  animation: connectionSelected 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes connectionSelected {
+
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
+
+}
+
+
+/* DNA ENERGY PARTICLES */
+
+.dna-particle {
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #00ffc8;
+
+  box-shadow:
+    0 0 6px #00ffc8,
+    0 0 14px rgba(0, 234, 255, 0.8);
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  opacity: 0;
+
+  animation:
+    dnaParticleFlow
+    3.5s linear infinite;
+}
+
+@keyframes dnaParticleFlow {
+
+  0% {
+    opacity: 0;
+    transform:
+      translateX(-50%)
+      scale(0.5);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  50% {
+    transform:
+      translateX(35px)
+      scale(1);
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translateX(-35px)
+      scale(0.4);
+  }
+
+}
+
+
+/* CORE ENERGY */
+
+.grey-connection-core {
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.grey-connection-core:has(
+  .core-label
+) {
+  animation:
+    connectionCoreGlow
+    3s ease-in-out infinite;
+}
+
+@keyframes connectionCoreGlow {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 25px rgba(0, 255, 200, 0.12),
+      inset 0 0 25px rgba(0, 255, 200, 0.05);
+  }
+
+  50% {
+    box-shadow:
+      0 0 45px rgba(0, 255, 200, 0.28),
+      inset 0 0 35px rgba(0, 255, 200, 0.1);
+  }
+
+}
+
+
+/* MOBILE TOUCH */
+
+@media (max-width: 600px) {
+
+  .connection-active {
+    transform:
+      scale(1.02) !important;
+  }
+
+  .dna-particle {
+    width: 4px;
+    height: 4px;
+  }
+
+}

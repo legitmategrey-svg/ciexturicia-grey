@@ -2420,3 +2420,103 @@ console.log(
 console.log(
   "VOICE SYSTEM ✓"
 );
+
+/* =========================================================
+   GREY CONNECTIONS — INTERACTIVE DNA EFFECTS
+========================================================= */
+
+(() => {
+
+  const section = document.getElementById("grey-connections");
+
+  if (!section) return;
+
+  const cards = section.querySelectorAll(".connection-card");
+  const core = section.querySelector(".grey-connection-core");
+
+  /* -----------------------------------------
+     CARD INTERACTION
+  ----------------------------------------- */
+
+  cards.forEach((card, index) => {
+
+    card.addEventListener("click", () => {
+
+      // Remove previous active state
+      cards.forEach(item => {
+        item.classList.remove("connection-active");
+      });
+
+      // Activate selected connection
+      card.classList.add("connection-active");
+
+      // Update Grey's core
+      if (core) {
+
+        const label =
+          core.querySelector(".core-label");
+
+        if (label) {
+          label.textContent =
+            `CONNECTED • ${String(index + 1).padStart(2, "0")}`;
+        }
+
+      }
+
+      // Return to normal after a moment
+      setTimeout(() => {
+
+        card.classList.remove(
+          "connection-active"
+        );
+
+        if (core) {
+
+          const label =
+            core.querySelector(".core-label");
+
+          if (label) {
+            label.textContent =
+              "THE CONNECTION";
+          }
+
+        }
+
+      }, 2500);
+
+    });
+
+  });
+
+
+  /* -----------------------------------------
+     DNA PARTICLES
+  ----------------------------------------- */
+
+  const dna = section.querySelector(".dna-helix");
+
+  if (!dna) return;
+
+  for (let i = 0; i < 12; i++) {
+
+    const particle =
+      document.createElement("span");
+
+    particle.className =
+      "dna-particle";
+
+    particle.style.animationDelay =
+      `${i * 0.35}s`;
+
+    particle.style.top =
+      `${20 + i * 48}px`;
+
+    dna.appendChild(particle);
+
+  }
+
+  console.log(
+    "GREY CONNECTION SYSTEM ONLINE ✓"
+  );
+
+})();

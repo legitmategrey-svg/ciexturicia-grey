@@ -2074,11 +2074,18 @@ const aiInput =
 /* ==========================================
    VOICE INPUT
 ========================================== */
-
 const SpeechRecognition =
   window.SpeechRecognition ||
   window.webkitSpeechRecognition;
+console.log(
+  "Speech Recognition supported:",
+  !!SpeechRecognition
+);
 
+console.log(
+  "Secure context:",
+  window.isSecureContext
+);
 
 let recognition = null;
 
@@ -2155,18 +2162,38 @@ if (
 
 
   recognition.onerror =
-    function(event) {
+  function(event) {
 
-      console.error(
-        "GREY AI voice error:",
-        event.error
-      );
+    console.error(
+      "GREY AI voice error:",
+      event.error
+    );
 
+    const voiceErrors = {
+      "not-allowed":
+        "🎤 Microphone permission denied.",
 
-      voiceStatus.textContent =
-        "Voice error. Try again.";
+      "service-not-allowed":
+        "🎤 Speech recognition is not allowed.",
 
+      "audio-capture":
+        "🎤 No microphone detected.",
+
+      "no-speech":
+        "🎤 No speech detected. Try again.",
+
+      "network":
+        "🌐 Speech recognition network error.",
+
+      "aborted":
+        "🎤 Listening stopped."
     };
+
+    voiceStatus.textContent =
+      voiceErrors[event.error] ||
+      "🎤 Voice error: " + event.error;
+
+  };
 
 
   recognition.onend =

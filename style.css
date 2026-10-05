@@ -3292,3 +3292,82 @@ button.ask-grey-btn:focus-visible {
     min-height: 42px;
   }
 }
+
+/* =====================================================
+   GREY AI — FINAL MOBILE OVERRIDE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+  #grey-ai {
+    position: fixed !important;
+    top: 8px !important;
+    right: 8px !important;
+    bottom: 8px !important;
+    left: 8px !important;
+
+    width: auto !important;
+    height: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+
+    display: none !important;
+    flex-direction: column !important;
+
+    border-radius: 20px !important;
+    overflow: hidden !important;
+
+    z-index: 999999 !important;
+  }
+
+  #grey-ai.active {
+    display: flex !important;
+  }
+
+  #grey-ai .ai-header {
+    flex-shrink: 0 !important;
+  }
+
+  #grey-ai #ai-chat,
+  #grey-ai .ai-chat {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  #grey-ai .ai-quick,
+  #grey-ai .ai-quick-buttons {
+    flex-shrink: 0 !important;
+    overflow-x: auto !important;
+  }
+
+  #grey-ai .ai-input-area {
+    flex-shrink: 0 !important;
+    display: flex !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  #grey-ai #ai-input {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  #grey-ai #send-btn,
+  #grey-ai #voice-btn {
+    flex-shrink: 0 !important;
+  }
+
+  #greyAiLauncher {
+    position: fixed !important;
+    right: 14px !important;
+    bottom: 14px !important;
+    z-index: 999998 !important;
+  }
+
+  body:has(#grey-ai.active) #greyAiLauncher {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}

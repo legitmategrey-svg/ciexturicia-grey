@@ -124,21 +124,21 @@ const nextBtn =
 const playlist = [
 
   {
-    title: "You Got Me",
+    title: "Helplessly",
     artist: "Tatiana Manaois",
-    src: "music/you-got-me.mp3"
+    src: "Helplessly-Tatiana Manaois.mp3"
   },
 
   {
-    title: "Like I Did",
+    title: "Some Days",
     artist: "Tatiana Manaois",
-    src: "music/like-i-did.mp3"
+    src: "Some Days-Tatiana Manaois.mp3"
   },
 
   {
-    title: "Wanna Be Yours",
+    title: "Never been the same",
     artist: "Tatiana Manaois",
-    src: "music/wanna-be-yours.mp3"
+    src: "Never been the same-Tatiana Manaois"
   }
 
 ];

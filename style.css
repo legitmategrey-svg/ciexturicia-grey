@@ -4346,3 +4346,147 @@ button.ask-grey-btn:focus-visible {
   }
 
 }
+
+/* =========================================================
+   CLASSIC GREY LOGO
+========================================================= */
+
+.grey-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #fff;
+  line-height: 1;
+}
+
+.logo-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: #00eaff;
+  font-size: 18px;
+  transform: rotate(45deg);
+  text-shadow:
+    0 0 8px rgba(0, 234, 255, 0.8),
+    0 0 18px rgba(0, 234, 255, 0.35);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.logo-text small {
+  color: #00eaff;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.logo-text strong {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+/* Subtle hover effect */
+.grey-logo:hover .logo-mark {
+  transform: rotate(225deg) scale(1.08);
+  transition: 0.4s ease;
+}
+
+.grey-logo:hover .logo-text strong {
+  color: #00eaff;
+  transition: 0.3s ease;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .logo-mark {
+    width: 24px;
+    height: 24px;
+    font-size: 15px;
+  }
+
+  .logo-text small {
+    font-size: 6px;
+    letter-spacing: 2px;
+  }
+
+  .logo-text strong {
+    font-size: 17px;
+    letter-spacing: 2px;
+  }
+
+}
+
+.logo-mark {
+  position: relative;
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #00eaff;
+  font-size: 15px;
+  font-weight: 900;
+
+  border: 1px solid rgba(0, 234, 255, 0.65);
+  border-radius: 8px;
+
+  transform: rotate(45deg);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 234, 255, 0.12),
+      rgba(0, 255, 200, 0.03)
+    );
+
+  box-shadow:
+    0 0 10px rgba(0, 234, 255, 0.35),
+    inset 0 0 8px rgba(0, 234, 255, 0.08);
+
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+/* Keep the diamond itself visually stable */
+.logo-mark::after {
+  content: "CG";
+
+  position: absolute;
+
+  transform: rotate(-45deg);
+
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: -1px;
+
+  color: #ffffff;
+
+  text-shadow:
+    0 0 7px rgba(0, 234, 255, 0.7);
+}
+
+/* Brand interaction */
+.grey-logo:hover .logo-mark {
+  transform:
+    rotate(225deg)
+    scale(1.08);
+
+  box-shadow:
+    0 0 18px rgba(0, 234, 255, 0.65),
+    0 0 35px rgba(0, 255, 200, 0.2);
+}

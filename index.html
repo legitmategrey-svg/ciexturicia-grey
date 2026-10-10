@@ -225,6 +225,48 @@
       </div>
     </section>
 
+
+    
+<!-- GREY BIRTHDAY COUNTDOWN -->
+<section class="birthday-clock" id="birthday-clock">
+  <div class="birthday-header">
+    <span class="birthday-icon">🎂</span>
+    <div>
+      <h2>GREY BIRTHDAY COUNTDOWN</h2>
+      <p>THE NEXT CHAPTER BEGINS IN...</p>
+    </div>
+  </div>
+
+  <div class="birthday-date">07 JULY</div>
+
+  <div class="birthday-timer">
+    <div class="birthday-unit">
+      <span id="bday-days">000</span>
+      <small>DAYS</small>
+    </div>
+
+    <div class="birthday-unit">
+      <span id="bday-hours">00</span>
+      <small>HOURS</small>
+    </div>
+
+    <div class="birthday-unit">
+      <span id="bday-minutes">00</span>
+      <small>MINUTES</small>
+    </div>
+
+    <div class="birthday-unit">
+      <span id="bday-seconds">00</span>
+      <small>SECONDS</small>
+    </div>
+  </div>
+
+  <p id="birthday-message">
+    Counting down to another year of greatness.
+  </p>
+</section>
+
+
     <!-- ============================= -->
 <!-- GREY COMMAND CENTER -->
 <!-- ============================= -->
@@ -554,6 +596,56 @@
 
 </section>
 
+
+<!-- GREY TERMINAL -->
+<section class="grey-terminal-section" id="grey-terminal">
+  <div class="terminal-heading">
+    <p class="terminal-eyebrow">SYSTEM INTERFACE // 06</p>
+    <h2>GREY TERMINAL<span>_</span></h2>
+    <p>Explore Grey's digital world through commands.</p>
+  </div>
+
+  <div class="grey-terminal" aria-label="GREY Terminal">
+    <div class="terminal-topbar">
+      <div class="terminal-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <span class="terminal-window-title">grey@portfolio:~</span>
+      <span class="terminal-status">ONLINE</span>
+    </div>
+
+    <div
+      id="grey-terminal-output"
+      class="terminal-output"
+      role="log"
+      aria-live="polite"
+      aria-relevant="additions"
+    >
+      <p>GREY TERMINAL [Version 1.0]</p>
+      <p>Welcome to Ciexturicia Grey's digital space.</p>
+      <p>Type <span class="terminal-command-text">help</span> to see available commands.</p>
+    </div>
+
+    <form id="grey-terminal-form" class="terminal-input-row">
+      <label for="grey-terminal-input">visitor@grey:~$</label>
+      <input
+        id="grey-terminal-input"
+        type="text"
+        placeholder="Type a command..."
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Enter a terminal command"
+      />
+      <button type="submit">RUN</button>
+    </form>
+  </div>
+</section>
+<!-- END GREY TERMINAL -->
+
+  
     <section id="contact" class="section contact">
       <p class="eyebrow">05 / GET IN TOUCH</p>
       <h2 class="section-title">Let's build<br><span>something.</span></h2>
@@ -714,6 +806,6 @@
 
 </button>
   <script src="script.js" defer></script>
-
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5e2887523e904a6aa00233e86c9008d9"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

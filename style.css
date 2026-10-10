@@ -4490,3 +4490,314 @@ button.ask-grey-btn:focus-visible {
     0 0 18px rgba(0, 234, 255, 0.65),
     0 0 35px rgba(0, 255, 200, 0.2);
 }
+
+
+/* =================================
+   GREY BIRTHDAY COUNTDOWN
+================================= */
+
+.birthday-clock {
+  position: relative;
+  overflow: hidden;
+  margin: 30px 0;
+  padding: 25px 18px;
+  border: 1px solid rgba(0, 140, 255, 0.5);
+  border-radius: 18px;
+  background: linear-gradient(
+    145deg,
+    #080914,
+    #101b38,
+    #05060d
+  );
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 0 22px rgba(0, 110, 255, 0.12);
+}
+
+.birthday-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.birthday-icon {
+  font-size: 32px;
+}
+
+.birthday-header h2 {
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  color: #58a6ff;
+}
+
+.birthday-header p {
+  margin: 7px 0 0;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #a9b8d4;
+}
+
+.birthday-date {
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 5px;
+  color: #ffffff;
+  text-shadow: 0 0 15px #1677ff;
+}
+
+.birthday-timer {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.birthday-unit {
+  padding: 15px 3px;
+  border: 1px solid rgba(65, 145, 255, 0.35);
+  border-radius: 10px;
+  background: rgba(20, 40, 80, 0.55);
+}
+
+.birthday-unit span {
+  display: block;
+  font-size: clamp(19px, 5vw, 30px);
+  font-weight: 800;
+  color: #65b5ff;
+  font-variant-numeric: tabular-nums;
+}
+
+.birthday-unit small {
+  display: block;
+  margin-top: 8px;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #d1dced;
+}
+
+#birthday-message {
+  margin: 22px 0 0;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #b8c9e8;
+}
+
+.birthday-clock.birthday-today {
+  border-color: #ffd166;
+  box-shadow: 0 0 25px rgba(255, 209, 102, 0.3);
+}
+
+.birthday-today .birthday-date,
+.birthday-today .birthday-unit span {
+  color: #ffd166;
+  text-shadow: 0 0 12px rgba(255, 209, 102, 0.4);
+}
+
+
+/* =========================================
+   GREY TERMINAL — CLASSIC CYBER DESIGN
+========================================= */
+
+.grey-terminal-section {
+  padding: 70px 20px;
+  background: #080914;
+  color: #ffffff;
+}
+
+.terminal-heading {
+  max-width: 900px;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.terminal-eyebrow {
+  color: #568cff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.terminal-heading h2 {
+  margin: 12px 0;
+  font-size: clamp(28px, 5vw, 44px);
+  letter-spacing: 2px;
+}
+
+.terminal-heading h2 span {
+  color: #3978ff;
+  animation: greyTerminalBlink 1s steps(2, start) infinite;
+}
+
+.terminal-heading > p:last-child {
+  color: #a5abc2;
+  font-size: 14px;
+}
+
+.grey-terminal {
+  max-width: 850px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #234a96;
+  border-radius: 12px;
+  background: #050711;
+  box-shadow: 0 0 25px rgba(45, 105, 255, 0.12);
+}
+
+.terminal-topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 48px;
+  padding: 0 16px;
+  background: #10162a;
+  border-bottom: 1px solid #1c2c50;
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.terminal-dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #3978ff;
+}
+
+.terminal-dots span:nth-child(1) {
+  background: #ff6b6b;
+}
+
+.terminal-dots span:nth-child(2) {
+  background: #ffc857;
+}
+
+.terminal-dots span:nth-child(3) {
+  background: #45d6a0;
+}
+
+.terminal-window-title {
+  flex: 1;
+  color: #c4cee8;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.terminal-status {
+  color: #45d6a0;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.terminal-output {
+  min-height: 230px;
+  max-height: 360px;
+  overflow-y: auto;
+  padding: 20px;
+  color: #dce5ff;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.terminal-output p {
+  margin: 0 0 5px;
+}
+
+.terminal-command-text {
+  color: #69a0ff;
+  font-weight: bold;
+}
+
+.terminal-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border-top: 1px solid #1c2c50;
+  background: #0a0e1c;
+}
+
+.terminal-input-row label {
+  flex-shrink: 0;
+  color: #568cff;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.terminal-input-row input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  padding: 10px 8px;
+  border: 1px solid #25385f;
+  border-radius: 5px;
+  outline: none;
+  background: #050711;
+  color: #ffffff;
+  font-family: monospace;
+  font-size: 13px;
+}
+
+.terminal-input-row input:focus {
+  border-color: #3978ff;
+  box-shadow: 0 0 0 2px rgba(57, 120, 255, 0.12);
+}
+
+.terminal-input-row button {
+  padding: 10px 14px;
+  border: 1px solid #3978ff;
+  border-radius: 5px;
+  background: #2459cc;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.terminal-input-row button:hover {
+  background: #3978ff;
+}
+
+@keyframes greyTerminalBlink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  .grey-terminal-section {
+    padding: 50px 12px;
+  }
+
+  .terminal-topbar {
+    gap: 9px;
+    padding: 0 10px;
+  }
+
+  .terminal-input-row {
+    gap: 6px;
+    padding: 10px 8px;
+  }
+
+  .terminal-input-row label {
+    font-size: 10px;
+  }
+
+  .terminal-input-row button {
+    padding: 10px;
+  }
+
+  .terminal-output {
+    padding: 14px;
+    font-size: 12px;
+  }
+}
+

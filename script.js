@@ -1918,10 +1918,11 @@ function updateGreyActivity() {
 }
 
 
+
 /* FIRST ACTIVITY */
 
-updateGreyActivity();
-
+// Wait until the entire script has initialized.
+setTimeout(updateGreyActivity, 0);
 
 /* NEW ACTIVITY */
 
@@ -1929,6 +1930,7 @@ setInterval(
   updateGreyActivity,
   8000
 );
+
 
 
 /* ==========================================
@@ -2519,4 +2521,210 @@ console.log(
     "GREY CONNECTION SYSTEM ONLINE ✓"
   );
 
+})
+  ();
+
+
+function updateGreyBirthday() {
+  const ids = {
+    days: document.getElementById("bday-days"),
+    hours: document.getElementById("bday-hours"),
+    minutes: document.getElementById("bday-minutes"),
+    seconds: document.getElementById("bday-seconds"),
+    message: document.getElementById("birthday-message"),
+    box: document.getElementById("birthday-clock")
+  };
+
+  if (
+    !ids.days || !ids.hours || !ids.minutes ||
+    !ids.seconds || !ids.message || !ids.box
+  ) {
+    console.error("Birthday countdown HTML elements missing.");
+    return;
+  }
+
+  const now = new Date();
+
+  // Month 6 means July; day 7 is the birthday.
+  let year = now.getFullYear();
+  let nextBirthday = new Date(year, 6, 7);
+
+  // If July 7 has passed, use next year.
+  if (now >= new Date(year, 6, 8)) {
+    nextBirthday = new Date(year + 1, 6, 7);
+  }
+
+  // Show a birthday message throughout July 7.
+  const birthdayToday =
+    now.getMonth() === 6 && now.getDate() === 7;
+
+  if (birthdayToday) {
+    ids.box.classList.add("birthday-today");
+    ids.days.textContent = "🎉";
+    ids.hours.textContent = "🎂";
+    ids.minutes.textContent = "🥳";
+    ids.seconds.textContent = "✨";
+    ids.message.textContent =
+      "HAPPY BIRTHDAY, GREY! 🎉 Another year of greatness!";
+    return;
+  }
+
+  ids.box.classList.remove("birthday-today");
+
+  const remaining = Math.max(0, nextBirthday - now);
+  const day = Math.floor(remaining / 86400000);
+  const hour = Math.floor(remaining / 3600000) % 24;
+  const minute = Math.floor(remaining / 60000) % 60;
+  const second = Math.floor(remaining / 1000) % 60;
+
+  ids.days.textContent = String(day).padStart(3, "0");
+  ids.hours.textContent = String(hour).padStart(2, "0");
+  ids.minutes.textContent = String(minute).padStart(2, "0");
+  ids.seconds.textContent = String(second).padStart(2, "0");
+
+  ids.message.textContent =
+    "Counting down to 7 July. Stay legendary, Grey.";
+}
+
+// Start only once, after the page elements have loaded.
+function startGreyBirthdayCountdown() {
+  if (window.greyBirthdayTimer) {
+    clearInterval(window.greyBirthdayTimer);
+  }
+
+  updateGreyBirthday();
+  window.greyBirthdayTimer =
+    setInterval(updateGreyBirthday, 1000);
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener(
+    "DOMContentLoaded",
+    startGreyBirthdayCountdown,
+    { once: true }
+  );
+} else {
+  startGreyBirthdayCountdown();
+}
+
+
+/* =========================================
+   GREY TERMINAL — COMMAND ENGINE
+========================================= */
+
+(function initGreyTerminal() {
+  const form = document.getElementById("grey-terminal-form");
+  const input = document.getElementById("grey-terminal-input");
+  const output = document.getElementById("grey-terminal-output");
+
+  // Safe to skip if the terminal HTML isn't on this page.
+  if (!form || !input || !output) return;
+
+  const commands = {
+    help: () => [
+      "AVAILABLE COMMANDS",
+      "------------------",
+      "help     - Show all available commands",
+      "about    - Learn about Ciexturicia Grey",
+      "skills   - View Grey's technology skills",
+      "projects - Explore Grey's projects",
+      "contact  - Find contact information",
+      "clear    - Clear the terminal screen"
+    ],
+
+    about: () => [
+      "ABOUT CIEXTURICIA GREY",
+      "----------------------",
+      "Also known as Legitmate Grey.",
+      "ICT practitioner and developer in training.",
+      "Currently learning web development and programming.",
+      "Dream: Become a software engineer.",
+      "Goal: Become a full-stack developer."
+    ],
+
+    skills: () => [
+      "GREY'S TECH STACK",
+      "-----------------",
+      "HTML       - Web page structure",
+      "CSS        - Styling and responsive design",
+      "JavaScript - Interactive web experiences",
+      "Web Design - Website layout and presentation",
+      "ICT        - Information and communication technology",
+      "GitHub     - Hosting and project publishing"
+    ],
+
+    projects: () => [
+      "PROJECT EXPLORER",
+      "----------------",
+      "1. Ciexturicia Grey Portfolio",
+      "   Personal developer portfolio.",
+      "2. GREY AI",
+      "   Portfolio assistant powered by a backend.",
+      "3. GREY Terminal",
+      "   Interactive command-line-style interface.",
+      "Portfolio:",
+      "https://legitmategrey-svg.github.io/ciexturicia-grey/"
+    ],
+
+    contact: () => [
+      "CONTACT GREY",
+      "------------",
+      "Email: legitmategrey@gmail.com",
+      "Instagram: @legitmategrey",
+      "TikTok: @legitmategrey",
+      "Facebook: @legitmategrey",
+      "Email link: mailto:legitmategrey@gmail.com"
+    ]
+  };
+
+  function addTerminalLine(text, className) {
+    const line = document.createElement("p");
+    line.textContent = text;
+
+    if (className) {
+      line.className = className;
+    }
+
+    output.appendChild(line);
+  }
+
+  function runGreyCommand(rawCommand) {
+    const command = rawCommand.trim().toLowerCase();
+
+    if (!command) return;
+
+    addTerminalLine("visitor@grey:~$ " + rawCommand, "terminal-command-text");
+
+    if (command === "clear") {
+      output.replaceChildren();
+      return;
+    }
+
+    if (commands[command]) {
+      commands[command]().forEach((line) => {
+        addTerminalLine(line);
+      });
+    } else {
+      addTerminalLine("Command not found: " + command);
+      addTerminalLine('Type "help" to see available commands.');
+    }
+
+    output.scrollTop = output.scrollHeight;
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    runGreyCommand(input.value);
+    input.value = "";
+    input.focus();
+  });
+
+  // Make terminal commands easy to test from the browser console too.
+  window.runGreyCommand = runGreyCommand;
+
+  console.log("GREY Terminal initialized successfully.");
 })();
+
+
+

@@ -549,7 +549,9 @@ const greyKnowledge = {
     "GTA",
     "Blur",
     "Call of Duty",
-    "Need for Speed"
+    "Need for Speed",
+    "DLS",
+    "MODER COMBAT"
   ],
 
 
@@ -2727,4 +2729,36 @@ if (document.readyState === "loading") {
 })();
 
 
+async function loadVisitorStatistics() {
+  const counter = document.getElementById("totalVisits");
 
+  if (!counter) return;
+
+  try {
+    // Replace this with your actual visitor-counter API URL.
+    const response = await fetch(
+      "https://grey-visitor-counter.legitmategrey.workers.dev/"
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to load visit count");
+    }
+
+    const data = await response.json();
+
+    if (
+      data.success &&
+      Number.isFinite(Number(data.totalVisits))
+    ) {
+      counter.textContent =
+        Number(data.totalVisits).toLocaleString();
+    }
+  } catch (error) {
+    console.error(
+      "Visitor statistics error:",
+      error
+    );
+  }
+}
+
+loadVisitorStatistics();

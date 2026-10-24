@@ -50,7 +50,7 @@ const K=[[/^(hi|hello|hey|yo|sup)\b/,"Hey! 👋 I'm GREY AI. Ask about Grey's sk
 [/educat|certificate|studying|qualif/,"Grey is working towards a National Certificate in ICT."],[/skill|good at|what can/,"HTML, CSS, JavaScript, Web Design and ICT."],
 [/hobb|interest|for fun/,"Programming, web design, gaming, music, movies, travel, plus AI, computers and robotics."],[/music|artist|singer/,"His favourite artist is Tatiana Manaois. 🎵"],[/gam(e|ing)/,"GTA, Blur, Call of Duty, Need for Speed and DLS. 🎮"],
 [/project|built|work/,"Grey-schooldesk, Grey-books, Sempala Stationery, the Ciexturicia Grey platform, Legitmate-greytech and this portfolio. Tap Explore My Work! 🚀"],
-[/birthday|born/,"Grey's birthday is on 7 July. 🎂"],[/school|merryhill/,"Grey attended Merryhill Christian High School in Gayaza."],[/contact|email/,"Email: "+EMAIL+" or use the Contact page."],
+[/birthday|born/,"Grey's birthday is on 7 July. 🎂"],[/school|merryhill/,"Grey attended Merryhill Christian High School in Gayaza."],[/contact|email|reach|get in touch|hire|talk to|message him|call him|social/,"You can reach Grey at "+EMAIL+", through the Contact page, or on Instagram, TikTok and Facebook as @legitmategrey. 📩"],
 [/^help$|what can i ask/,"Ask about Grey's skills, projects, education, goals, hobbies, music or gaming."],[/^(thanks|thank you)/,"You're welcome! 😎"],[/^(bye|goodbye)/,"See you later! 👋"]];
 const local=q=>{q=q.toLowerCase().replace(/[^a-z0-9\s'-]/g," ").trim();const h=K.find(k=>k[0].test(q));return h?h[1]:null},hist=[];
 function say(t,c){const e=document.createElement("div");e.className="msg "+c;e.textContent=t;$("ai-chat").append(e);$("ai-chat").scrollTop=1e9;return e}

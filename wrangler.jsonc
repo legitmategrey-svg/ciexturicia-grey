@@ -5,5 +5,6 @@
   "compatibility_date": "2026-10-03",
   "ai": {
     "binding": "AI"
-  }
+  },
+  "observability": { "enabled": true }
 }
